@@ -1,28 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Texas Hill Country Road Trip Itinerary</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
+  <title>Enhanced Texas Hill Country Itinerary with Fixed Weather Links</title>
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
     h1 { color: #2c3e50; text-align: center; }
     details { margin-bottom: 1.5em; border: 1px solid #ccc; border-radius: 5px; padding: 0.5em; background: #f9f9f9; }
     summary { font-size: 1.2em; font-weight: bold; cursor: pointer; }
     ul { list-style: none; padding-left: 0; }
-    li { margin: 0.5em 0; display: flex; align-items: flex-start; }
-    li i, li span.fa-solid {
-      flex-shrink: 0;
-      margin-right: 0.5em;
-      margin-top: 2px;
-      min-width: 20px;
-      text-align: center;
-    }
+    li { margin: 0.5em 0; }
     .route { margin-left: 1.5em; font-style: italic; color: #555; }
     .weather { background: #eef; padding: 0.5em; border-radius: 4px; margin-bottom: 0.5em; }
     .weather a { color: #2980b9; text-decoration: none; }
-    .calendar { font-size: 0.9em; margin-left: 0.5em; }
+    .calendar { font-size: 0.9em; margin-left: 0.3em; }
     .map-link { margin-left: 1.5em; font-size: 0.9em; }
     @media (max-width: 600px) { body { font-size: 16px; } }
     @media print {
@@ -35,113 +34,128 @@
   </style>
 </head>
 <body>
-<h1>🗺️ Texas Hill Country Road Trip Itinerary</h1>
 
-<details open>
-  <summary><i class="fa-solid fa-sun"></i> Sunday, May 25 – Fort Worth → Cypress Valley</summary>
-  <div class="weather">
-    <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
-      <strong>Forecast (Spicewood, TX 78669):</strong> ☀️ High: 97°F, 🌙 Low: 78°F, Humid, 20% rain chance
-    </a>
-  </div>
-  <ul>
-    <li><i class="fa-solid fa-location-dot"></i><strong>1:00 PM:</strong> Depart <em>3065 Hopewell Ln, Fort Worth, TX</em></li>
-    <li class="route">Route (~170 mi, 3 h 26 m): I-35W S → I-35 S → US-290 W → TX-71 E → Paleface Ranch Rd S</li>
-    <li class="map-link"><a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-    <li><i class="fa-solid fa-key"></i><strong>4:00 PM:</strong> Check-in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a><a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">➕ Add to Calendar</a></li>
-    <li><i class="fa-solid fa-mug-hot"></i><strong>5:00 PM:</strong> Leisure: espresso/tea, lawn games, hammocks</li>
-    <li><i class="fa-solid fa-utensils"></i><strong>6:00 PM:</strong> Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie’s Barbecue</a></li>
-    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Stargazing at the communal fire pit</li>
-  </ul>
-</details>
+  <h1>🗺️ Texas Hill Country Road Trip Itinerary</h1>
 
-<details>
-  <summary><i class="fa-solid fa-cloud-sun"></i> Monday, May 26 – Cypress Valley Activities</summary>
-  <div class="weather">
-    <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
-      <strong>Forecast (Spicewood, TX 78669):</strong> 🌤️ High: 93°F, 🌙 Low: 72°F, Breezy, 30% rain chance
-    </a>
-  </div>
-  <ul>
-    <li><i class="fa-solid fa-dumbbell"></i><strong>8:00 AM:</strong> Yoga on the creek‑side platform</li>
-    <li><i class="fa-solid fa-bread-slice"></i><strong>10:00 AM:</strong> Breakfast in-cabin or at Spicewood Station Café</li>
-    <li><i class="fa-solid fa-hiking"></i><strong>11:30 AM:</strong> Visit Muleshoe Bend Recreation Area
-      <a class="map-link" href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank">
-        <i class="fa-solid fa-map"></i> View Route
+  <!-- Sunday -->
+  <details open>
+    <summary><i class="fa-solid fa-sun"></i> Sunday, May 25 – Fort Worth → Cypress Valley</summary>
+    <div class="weather">
+      <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
+        <strong>Forecast (Spicewood, TX 78669):</strong> ☀️ High: 97°F, 🌙 Low: 78°F, Humid, 20% rain chance
       </a>
-    </li>
-    <li><i class="fa-solid fa-utensils"></i><strong>1:00 PM:</strong> Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></li>
-    <li><i class="fa-solid fa-swimmer"></i><strong>2:00 PM:</strong> Swim & relax at Cypress Valley’s infinity pool</li>
-    <li><i class="fa-solid fa-music"></i><strong>6:30 PM:</strong> Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel’s Icehouse</a></li>
-    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Evening drinks on your treehouse deck</li>
-  </ul>
-</details>
+    </div>
+    <ul>
+      <li><i class="fa-solid fa-location-dot"></i> <strong>1:00 PM:</strong> Depart <em>3065 Hopewell Ln, Fort Worth, TX</em></li>
+      <li class="route">Route (~170 mi, 3 h 26 m): I‑35W S → I‑35 S → US‑290 W → TX‑71 E → Paleface Ranch Rd S</li>
+      <li class="map-link">
+        <a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank">
+          <i class="fa-solid fa-map"></i> View Route
+        </a>
+      </li>
+      <li><i class="fa-solid fa-key"></i> <strong>4:00 PM:</strong> Check‑in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a>
+        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">➕ Add to Calendar</a>
+      </li>
+      <li><i class="fa-solid fa-mug-hot"></i> <strong>5:00 PM:</strong> Leisure: espresso/tea, lawn games, hammocks</li>
+      <li><i class="fa-solid fa-utensils"></i> <strong>6:00 PM:</strong> Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie’s Barbecue</a></li>
+      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Stargazing at the communal fire pit</li>
+    </ul>
+  </details>
 
-<details>
-  <summary><i class="fa-solid fa-tree-city"></i> Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</summary>
-  <div class="weather">
-    <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank">
-      <strong>Forecast (New Braunfels, TX 78132):</strong> ☁️ High: 90°F, 🌙 Low: 69°F, Overcast, 50% rain chance
-    </a>
-  </div>
-  <ul>
-    <li><i class="fa-solid fa-bread-slice"></i><strong>8:00 AM:</strong> Breakfast tacos & coffee</li>
-    <li><i class="fa-solid fa-sign-out"></i><strong>11:00 AM:</strong> Check-out from Cypress Valley</li>
-    <li class="route">To Camp Fimfo: ~78 mi, 1 h 23 m via TX-71 W → US-281 S → FM 360 E</li>
-    <li class="map-link">
-      <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank">
-        <i class="fa-solid fa-map"></i> View Route
+  <!-- Monday -->
+  <details>
+    <summary><i class="fa-solid fa-cloud-sun"></i> Monday, May 26 – Cypress Valley Activities</summary>
+    <div class="weather">
+      <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
+        <strong>Forecast (Spicewood, TX 78669):</strong> 🌤️ High: 93°F, 🌙 Low: 72°F, Breezy, 30% rain chance
       </a>
-    </li>
-    <li><i class="fa-solid fa-location-dot"></i><strong>2:00 PM:</strong> Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a>
-      <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+at+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way,+New+Braunfels,+TX" target="_blank">➕ Add to Calendar</a>
-    </li>
-    <li><i class="fa-solid fa-roller-coaster"></i><strong>2:30 PM:</strong> Water playground, coaster, mini-golf</li>
-    <li><i class="fa-solid fa-road"></i><strong>4:00 PM:</strong> Depart Camp Fimfo for Glen Rose</li>
-    <li class="route">To Skybox Cabins: ~203 mi, 3 h 39 m via US-281 N → TX-220 → US-67</li>
-    <li class="map-link">
-      <a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank">
-        <i class="fa-solid fa-map"></i> View Route
+    </div>
+    <ul>
+      <li><i class="fa-solid fa-dumbbell"></i> <strong>8:00 AM:</strong> Yoga on the creek‑side platform</li>
+      <li><i class="fa-solid fa-bread-slice"></i> <strong>10:00 AM:</strong> Breakfast in‑cabin or Spicewood Station Café</li>
+      <li><i class="fa-solid fa-hiking"></i> <strong>11:30 AM:</strong> Muleshoe Bend Recreation Area (20 min)
+        <a class="map-link" href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank"><i class="fa-solid fa-map"></i> View Route</a>
+      </li>
+      <li><i class="fa-solid fa-utensils"></i> <strong>1:00 PM:</strong> Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></li>
+      <li><i class="fa-solid fa-swimmer"></i> <strong>2:00 PM:</strong> Swim & relax at the infinity pool</li>
+      <li><i class="fa-solid fa-music"></i> <strong>6:30 PM:</strong> Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel’s Icehouse</a></li>
+      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Deck time with craft drinks</li>
+    </ul>
+  </details>
+
+  <!-- Tuesday -->
+  <details>
+    <summary><i class="fa-solid fa-tree-city"></i> Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</summary>
+    <div class="weather">
+      <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank">
+        <strong>Forecast (New Braunfels, TX 78132):</strong> ☁️ High: 90°F, 🌙 Low: 69°F, Overcast, 50% rain chance
       </a>
-    </li>
-    <li><i class="fa-solid fa-key"></i><strong>6:45 PM:</strong> Check-in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a></li>
-    <li><i class="fa-solid fa-fire"></i><strong>8:00 PM:</strong> Campfire & s’mores</li>
-  </ul>
-</details>
+    </div>
+    <ul>
+      <li><i class="fa-solid fa-bread-slice"></i> <strong>8:00 AM:</strong> Breakfast tacos & coffee</li>
+      <li><i class="fa-solid fa-sign-out"></i> <strong>11:00 AM:</strong> Check‑out & depart Cypress Valley</li>
+      <li class="route">To Camp Fimfo: ~78 mi, 1 h 23 m via TX‑71 W → US‑281 S → FM 360 E</li>
+      <li class="map-link"><a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+      <li><i class="fa-solid fa-location-dot"></i> <strong>2:00 PM:</strong> Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a>
+        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way+New+Braunfels+TX" target="_blank">➕ Add to Calendar</a>
+      </li>
+      <li><i class="fa-solid fa-roller-coaster"></i> <strong>2:30 PM:</strong> On‑site fun: roller coaster, water playground, mini‑golf</li>
+      <li><i class="fa-solid fa-road"></i> <strong>4:00 PM:</strong> Depart for Skybox Cabins</li>
+      <li class="route">To Skybox: ~203 mi, 3 h 39 m via FM 360 W → US‑281 N → TX‑220 E → US‑67 W</li>
+      <li class="map-link"><a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+      <li><i class="fa-solid fa-key"></i> <strong>6:45 PM:</strong> Check‑in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a>
+        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Skybox+Cabins&dates=20250527T184500/20250527T190000&location=443+E+Chapman+St+Glen+Rose+TX" target="_blank">➕ Add to Calendar</a>
+      </li>
+      <li><i class="fa-solid fa-fire"></i> <strong>8:00 PM:</strong> Cabin campfire & s’mores</li>
+    </ul>
+  </details>
 
-<details>
-  <summary><i class="fa-solid fa-dinosaur"></i> Wednesday, May 28 – Glen Rose Adventures</summary>
-  <div class="weather">
-    <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
-      <strong>Forecast (Glen Rose, TX 76043):</strong> ⛈️ High: 79°F, 🌙 Low: 66°F, Morning storms, 40% rain chance
-    </a>
-  </div>
-  <ul>
-    <li><i class="fa-solid fa-bread-slice"></i><strong>8:00 AM:</strong> Breakfast or Rob’s Bakery</li>
-    <li><i class="fa-solid fa-footprints"></i><strong>9:30 AM:</strong> <a href="https://tpwd.texas.gov/state-parks/dinosaur-valley" target="_blank">Dinosaur Valley State Park</a></li>
-    <li><i class="fa-solid fa-utensils"></i><strong>1:00 PM:</strong> Lunch at The Green Pickle</li>
-    <li><i class="fa-solid fa-hippo"></i><strong>2:30 PM:</strong> <a href="https://fossilrim.org/" target="_blank">Fossil Rim Wildlife Safari</a></li>
-    <li><i class="fa-solid fa-utensils"></i><strong>6:30 PM:</strong> Dinner at Riverhouse Grill</li>
-    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Evening creekside stroll</li>
-  </ul>
-</details>
+  <!-- Wednesday -->
+  <details>
+    <summary><i class="fa-solid fa-dinosaur"></i> Wednesday, May 28 – Glen Rose Adventures</summary>
+    <div class="weather">
+      <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
+        <strong>Forecast (Glen Rose, TX 76043):</strong> ⛈️ High: 79°F, 🌙 Low: 66°F, Morning storms, then cloudy, 40% rain chance
+      </a>
+    </div>
+    <ul>
+      <li><i class="fa-solid fa-bread-slice"></i> <strong>8:00 AM:</strong> Cabin breakfast or Rob’s Bakery pastries</li>
+      <li><i class="fa-solid fa-footprints"></i> <strong>9:30 AM:</strong> Dinosaur Valley State Park</li>
+      <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/Dinosaur+Valley+State+Park" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+      <li><i class="fa-solid fa-utensils"></i> <strong>1:00 PM:</strong> Lunch at The Green Pickle</li>
+      <li><i class="fa-solid fa-hippo"></i> <strong>2:30 PM:</strong> Fossil Rim Wildlife Center safari</li>
+      <li class="map-link"><a href="https://www.google.com/maps/dir/Dinosaur+Valley+State+Park/Fossil+Rim+Wildlife+Center" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+      <li><i class="fa-solid fa-utensils"></i> <strong>6:30 PM:</strong> Dinner at Riverhouse Grill</li>
+      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Moonlit creek‑side stroll</li>
+    </ul>
+  </details>
 
-<details>
-  <summary><i class="fa-solid fa-arrow-up-right-from-square"></i> Thursday, May 29 – Glen Rose → Fort Worth</summary>
-  <div class="weather">
-    <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
-      <strong>Forecast (Glen Rose, TX 76043):</strong> 🌥️ High: 85°F, 🌙 Low: 65°F, Scattered storms, 60% rain chance
-    </a>
-  </div>
+  <!-- Thursday -->
+  <details>
+    <summary><i class="fa-solid fa-arrow-up-right-from-square"></i> Thursday, May 29 – Glen Rose → Fort Worth</summary>
+    <div class="weather">
+      <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
+        <strong>Forecast (Glen Rose, TX 76043):</strong> 🌥️ High: 85°F, 🌙 Low: 65°F, Scattered storms, 60% rain chance
+      </a>
+    </div>
+    <ul>
+      <li><i class="fa-solid fa-walking"></i> <strong>8:00 AM:</strong> Morning walk among oak‑cedar pastures</li>
+      <li><i class="fa-solid fa-box-open"></i> <strong>9:00 AM:</strong> Final breakfast & pack</li>
+      <li><i class="fa-solid fa-sign-out"></i> <strong>11:00 AM:</strong> Check‑out & depart Glen Rose</li>
+      <li class="route">Route home (56 mi, 54 m): US‑67 E → I‑20 W → I‑30 W → Riverside Blvd → local streets</li>
+      <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+      <li><i class="fa-solid fa-home"></i> <strong>12:00 PM:</strong> Arrive back at Fort Worth</li>
+    </ul>
+  </details>
+
+  <h2>📦 Pack & Pro Tips</h2>
   <ul>
-    <li><i class="fa-solid fa-walking"></i><strong>8:00 AM:</strong> Morning hike</li>
-    <li><i class="fa-solid fa-box-open"></i><strong>9:00 AM:</strong> Final breakfast & pack-up</li>
-    <li><i class="fa-solid fa-sign-out"></i><strong>11:00 AM:</strong> Depart Glen Rose</li>
-    <li class="route">To Fort Worth: ~56 mi, 54 min via US-67 → I-20 W</li>
-    <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-    <li><i class="fa-solid fa-home"></i><strong>12:00 PM:</strong> Arrive back home</li>
+    <li>Layered clothing (day: mid‑80s°F; night: low‑60s°F)</li>
+    <li>Hiking shoes + water‑friendly footwear</li>
+    <li>Binoculars, reusable water bottle, phone charger</li>
+    <li>Allow 15–30 min buffer each leg</li>
+    <li>Check live traffic on Google Maps/Waze before departing</li>
   </ul>
-</details>
 
 </body>
 </html>
