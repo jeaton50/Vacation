@@ -1,750 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Texas Hill Country Road Trip Itinerary</title>
-  
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-  />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/>
   <style>
-    :root {
-      --primary-color: #2c5530;
-      --secondary-color: #8b5a3c;
-      --accent-color: #d4af37;
-      --text-dark: #2c3e50;
-      --text-light: #7f8c8d;
-      --background-light: #f8f9fa;
-      --card-background: #ffffff;
-      --border-color: #e1e8ed;
-      --success-color: #27ae60;
-      --warning-color: #f39c12;
-      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      min-height: 100vh;
-      line-height: 1.6;
-      color: var(--text-dark);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-      background: var(--card-background);
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      opacity: 0.05;
-      z-index: 0;
-    }
-
-    header h1 {
-      position: relative;
-      z-index: 1;
-      font-size: 2.5rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-
-    .trip-dates {
-      position: relative;
-      z-index: 1;
-      font-size: 1.1rem;
-      color: var(--text-light);
-    }
-
-    .day-card {
-      background: var(--card-background);
-      border-radius: 15px;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .day-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-
-    .day-header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      padding: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .day-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .day-header:hover::before {
-      left: 100%;
-    }
-
-    .day-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .day-icon {
-      font-size: 1.5rem;
-    }
-
-    .expand-icon {
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .day-card.expanded .expand-icon {
-      transform: rotate(180deg);
-    }
-
-    .weather-banner {
-      background: linear-gradient(135deg, #74b9ff, #0984e3);
-      color: white;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .weather-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .weather-details {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .weather-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .day-content {
-      display: none;
-      padding: 1.5rem;
-    }
-
-    .day-card.expanded .day-content {
-      display: block;
-      animation: slideDown 0.3s ease-out;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .activity-list {
-      list-style: none;
-    }
-
-    .activity-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem;
-      margin-bottom: 0.5rem;
-      background: var(--background-light);
-      border-radius: 10px;
-      border-left: 4px solid var(--accent-color);
-      transition: all 0.3s ease;
-    }
-
-    .activity-item:hover {
-      background: #ecf0f1;
-      transform: translateX(5px);
-    }
-
-    .activity-icon {
-      color: var(--primary-color);
-      font-size: 1.1rem;
-      margin-top: 0.2rem;
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+    h1 { color: #2c3e50; text-align: center; }
+    details { margin-bottom: 1.5em; border: 1px solid #ccc; border-radius: 5px; padding: 0.5em; background: #f9f9f9; }
+    summary { font-size: 1.2em; font-weight: bold; cursor: pointer; }
+    ul { list-style: none; padding-left: 0; }
+    li { margin: 0.5em 0; display: flex; align-items: flex-start; }
+    li i, li span.fa-solid {
+      flex-shrink: 0;
+      margin-right: 0.5em;
+      margin-top: 2px;
       min-width: 20px;
+      text-align: center;
     }
-
-    .activity-content {
-      flex: 1;
-    }
-
-    .activity-time {
-      font-weight: 600;
-      color: var(--secondary-color);
-      margin-bottom: 0.3rem;
-    }
-
-    .activity-description {
-      color: var(--text-dark);
-    }
-
-    .route-info {
-      background: #fff3cd;
-      border: 1px solid #ffeaa7;
-      border-radius: 8px;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
-      font-style: italic;
-      color: #856404;
-    }
-
-    .link-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      margin: 0.3rem 0.3rem 0.3rem 0;
-    }
-
-    .link-button:hover {
-      background: var(--secondary-color);
-      transform: translateY(-1px);
-    }
-
-    .calendar-button {
-      background: var(--success-color);
-    }
-
-    .calendar-button:hover {
-      background: #219a52;
-    }
-
-    .tips-section {
-      background: var(--card-background);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      margin-top: 2rem;
-    }
-
-    .tips-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1.5rem;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-    }
-
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .tip-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem;
-      background: var(--background-light);
-      border-radius: 10px;
-      border-left: 4px solid var(--warning-color);
-    }
-
-    .tip-icon {
-      color: var(--warning-color);
-      font-size: 1.2rem;
-    }
-
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-      z-index: 1000;
-      transition: width 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-      
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      .day-title {
-        font-size: 1.1rem;
-      }
-      
-      .weather-details {
-        gap: 1rem;
-      }
-      
-      .activity-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      
-      .tips-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
+    .route { margin-left: 1.5em; font-style: italic; color: #555; }
+    .weather { background: #eef; padding: 0.5em; border-radius: 4px; margin-bottom: 0.5em; }
+    .weather a { color: #2980b9; text-decoration: none; }
+    .calendar { font-size: 0.9em; margin-left: 0.5em; }
+    .map-link { margin-left: 1.5em; font-size: 0.9em; }
+    @media (max-width: 600px) { body { font-size: 16px; } }
     @media print {
-      body {
-        background: white;
-        font-size: 12pt;
-      }
-      
-      .day-card {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        break-inside: avoid;
-      }
-      
-      .day-content {
-        display: block !important;
-      }
-      
-      .link-button {
-        display: none;
-      }
-      
-      .progress-bar {
-        display: none;
-      }
+      body { margin: 0; font-size: 12pt; }
+      a[href]:after { content: ""; }
+      details summary { display: block; }
+      .calendar { display: none; }
+      details { border: none; padding: 0; background: none; }
     }
   </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-  
-  <div class="container">
-    <header>
-      <h1><i class="fa-solid fa-route"></i> Texas Hill Country Road Trip</h1>
-      <p class="trip-dates">May 25-29, 2025 • 5 Days of Adventure</p>
-    </header>
+<h1>🗺️ Texas Hill Country Road Trip Itinerary</h1>
 
-    <!-- Sunday -->
-    <div class="day-card" data-day="1">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-sun day-icon"></i>
-          <span>Sunday, May 25 – Fort Worth → Cypress Valley</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud-sun" style="font-size: 1.5rem;"></i>
-          <span><strong>Spicewood, TX</strong></span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 97°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 78°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>20% Rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-location-dot activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Depart from <em>3065 Hopewell Ln, Fort Worth, TX</em></div>
-              <div class="route-info">
-                <i class="fa-solid fa-route"></i> Route (~170 mi, 3h 26m): I‑35W S → I‑35 S → US‑290 W → TX‑71 E → Paleface Ranch Rd S
-              </div>
-              <a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank" class="link-button">
-                <i class="fa-solid fa-map"></i> View Route
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-key activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">4:00 PM</div>
-              <div class="activity-description">Check‑in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a></div>
-              <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">
-                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-mug-hot activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">5:00 PM</div>
-              <div class="activity-description">Leisure time: espresso/tea, lawn games, hammocks</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:00 PM</div>
-              <div class="activity-description">Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie's Barbecue</a></div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-star activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Stargazing at the communal fire pit</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+<details open>
+  <summary><i class="fa-solid fa-sun"></i> Sunday, May 25 – Fort Worth → Cypress Valley</summary>
+  <div class="weather">
+    <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
+      <strong>Forecast (Spicewood, TX 78669):</strong> ☀️ High: 97°F, 🌙 Low: 78°F, Humid, 20% rain chance
+    </a>
+  </div>
+  <ul>
+    <li><i class="fa-solid fa-location-dot"></i><strong>1:00 PM:</strong> Depart <em>3065 Hopewell Ln, Fort Worth, TX</em></li>
+    <li class="route">Route (~170 mi, 3 h 26 m): I-35W S → I-35 S → US-290 W → TX-71 E → Paleface Ranch Rd S</li>
+    <li class="map-link"><a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+    <li><i class="fa-solid fa-key"></i><strong>4:00 PM:</strong> Check-in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a><a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">➕ Add to Calendar</a></li>
+    <li><i class="fa-solid fa-mug-hot"></i><strong>5:00 PM:</strong> Leisure: espresso/tea, lawn games, hammocks</li>
+    <li><i class="fa-solid fa-utensils"></i><strong>6:00 PM:</strong> Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie’s Barbecue</a></li>
+    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Stargazing at the communal fire pit</li>
+  </ul>
+</details>
 
-    <!-- Monday -->
-    <div class="day-card" data-day="2">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-cloud-sun day-icon"></i>
-          <span>Monday, May 26 – Cypress Valley Activities</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud-sun" style="font-size: 1.5rem;"></i>
-          <span><strong>Spicewood, TX</strong></span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 93°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 72°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-wind"></i>
-            <span>Breezy</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>30% Rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-dumbbell activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Yoga on the creek‑side platform</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">10:00 AM</div>
-              <div class="activity-description">Breakfast in‑cabin or Spicewood Station Café</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-hiking activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">11:30 AM</div>
-              <div class="activity-description">Muleshoe Bend Recreation Area (20 min drive)</div>
-              <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank" class="link-button">
-                <i class="fa-solid fa-map"></i> View Route
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-swimmer activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:00 PM</div>
-              <div class="activity-description">Swim & relax at the infinity pool</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-music activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:30 PM</div>
-              <div class="activity-description">Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel's Icehouse</a></div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-star activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Deck time with craft drinks</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+<details>
+  <summary><i class="fa-solid fa-cloud-sun"></i> Monday, May 26 – Cypress Valley Activities</summary>
+  <div class="weather">
+    <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
+      <strong>Forecast (Spicewood, TX 78669):</strong> 🌤️ High: 93°F, 🌙 Low: 72°F, Breezy, 30% rain chance
+    </a>
+  </div>
+  <ul>
+    <li><i class="fa-solid fa-dumbbell"></i><strong>8:00 AM:</strong> Yoga on the creek‑side platform</li>
+    <li><i class="fa-solid fa-bread-slice"></i><strong>10:00 AM:</strong> Breakfast in-cabin or at Spicewood Station Café</li>
+    <li><i class="fa-solid fa-hiking"></i><strong>11:30 AM:</strong> Visit Muleshoe Bend Recreation Area
+      <a class="map-link" href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank">
+        <i class="fa-solid fa-map"></i> View Route
+      </a>
+    </li>
+    <li><i class="fa-solid fa-utensils"></i><strong>1:00 PM:</strong> Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></li>
+    <li><i class="fa-solid fa-swimmer"></i><strong>2:00 PM:</strong> Swim & relax at Cypress Valley’s infinity pool</li>
+    <li><i class="fa-solid fa-music"></i><strong>6:30 PM:</strong> Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel’s Icehouse</a></li>
+    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Evening drinks on your treehouse deck</li>
+  </ul>
+</details>
 
-    <!-- Tuesday -->
-    <div class="day-card" data-day="3">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-tree-city day-icon"></i>
-          <span>Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud" style="font-size: 1.5rem;"></i>
-          <span><strong>New Braunfels, TX</strong></span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 90°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 69°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-cloud"></i>
-            <span>Overcast</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>50% Rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank" class="link-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Breakfast tacos & coffee</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-sign-out activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">11:00 AM</div>
-              <div class="activity-description">Check‑out & depart Cypress Valley</div>
-              <div class="route-info">
-                <i class="fa-solid fa-route"></i> To Camp Fimfo: ~78 mi, 1h 23m via TX‑71 W → US‑281 S → FM 360 E
-              </div>
-              <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank" class="link-button">
-                <i class="fa-solid fa-map"></i> View Route
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-location-dot activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:00 PM</div>
-              <div class="activity-description">Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a></div>
-              <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way+New+Braunfels+TX" target="_blank">
-                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-roller-coaster activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:30 PM</div>
-              <div class="activity-description">On‑site fun: roller coaster, water playground, mini‑golf</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-road activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">4:00 PM</div>
-              <div class="activity-description">Depart for Skybox Cabins</div>
-              <div class="route-info">
-                <i class="fa-solid fa-route"></i> To Skybox: ~203 mi, 3h 39m via FM 360 W → US‑281 N → TX‑220 E → US‑67 W
-              </div>
-              <a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank" class="link-button">
-                <i class="fa-solid fa-map"></i> View Route
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-key activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:45 PM</div>
-              <div class="activity-description">Check‑in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a></div>
-              <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Skybox+Cabins&dates=20250527T184500/20250527T190000&location=443+E+Chapman+St+Glen+Rose+TX" target="_blank">
-                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-fire activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Cabin campfire & s'mores</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+<details>
+  <summary><i class="fa-solid fa-tree-city"></i> Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</summary>
+  <div class="weather">
+    <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank">
+      <strong>Forecast (New Braunfels, TX 78132):</strong> ☁️ High: 90°F, 🌙 Low: 69°F, Overcast, 50% rain chance
+    </a>
+  </div>
+  <ul>
+    <li><i class="fa-solid fa-bread-slice"></i><strong>8:00 AM:</strong> Breakfast tacos & coffee</li>
+    <li><i class="fa-solid fa-sign-out"></i><strong>11:00 AM:</strong> Check-out from Cypress Valley</li>
+    <li class="route">To Camp Fimfo: ~78 mi, 1 h 23 m via TX-71 W → US-281 S → FM 360 E</li>
+    <li class="map-link">
+      <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank">
+        <i class="fa-solid fa-map"></i> View Route
+      </a>
+    </li>
+    <li><i class="fa-solid fa-location-dot"></i><strong>2:00 PM:</strong> Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a>
+      <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+at+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way,+New+Braunfels,+TX" target="_blank">➕ Add to Calendar</a>
+    </li>
+    <li><i class="fa-solid fa-roller-coaster"></i><strong>2:30 PM:</strong> Water playground, coaster, mini-golf</li>
+    <li><i class="fa-solid fa-road"></i><strong>4:00 PM:</strong> Depart Camp Fimfo for Glen Rose</li>
+    <li class="route">To Skybox Cabins: ~203 mi, 3 h 39 m via US-281 N → TX-220 → US-67</li>
+    <li class="map-link">
+      <a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank">
+        <i class="fa-solid fa-map"></i> View Route
+      </a>
+    </li>
+    <li><i class="fa-solid fa-key"></i><strong>6:45 PM:</strong> Check-in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a></li>
+    <li><i class="fa-solid fa-fire"></i><strong>8:00 PM:</strong> Campfire & s’mores</li>
+  </ul>
+</details>
 
-    <!-- Wednesday -->
-    <div class="day-card" data-day="4">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-paw day-icon"></i>
-          <span>Wednesday, May 28 – Glen Rose Adventures</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud-bolt" style="font-size: 1.5rem;"></i>
-          <span><strong>Glen Rose, TX</strong></span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 79°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 66°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-cloud-bolt"></i>
-            <span>Morning storms</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>40% Rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank" class="link-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Cabin breakfast or Rob's Bakery pastries</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-footprints activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">9:30 AM</div>
-              <div class="activity-description">Dinosaur Valley State Park</div>
-              <a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/Dinosaur+Valley+State+Park" target="_blank" class="link-button">
-                <i class="fa-solid fa-map"></i> View Route
-              </a>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Lunch at The Green Pickle</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-hippo activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:30 PM</div>
-              <div class="activity-description">Fossil Rim Wildlife Center safari</div>
-              <a href="https://www.google.com/maps/dir/Dinosaur
+<details>
+  <summary><i class="fa-solid fa-dinosaur"></i> Wednesday, May 28 – Glen Rose Adventures</summary>
+  <div class="weather">
+    <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
+      <strong>Forecast (Glen Rose, TX 76043):</strong> ⛈️ High: 79°F, 🌙 Low: 66°F, Morning storms, 40% rain chance
+    </a>
+  </div>
+  <ul>
+    <li><i class="fa-solid fa-bread-slice"></i><strong>8:00 AM:</strong> Breakfast or Rob’s Bakery</li>
+    <li><i class="fa-solid fa-footprints"></i><strong>9:30 AM:</strong> <a href="https://tpwd.texas.gov/state-parks/dinosaur-valley" target="_blank">Dinosaur Valley State Park</a></li>
+    <li><i class="fa-solid fa-utensils"></i><strong>1:00 PM:</strong> Lunch at The Green Pickle</li>
+    <li><i class="fa-solid fa-hippo"></i><strong>2:30 PM:</strong> <a href="https://fossilrim.org/" target="_blank">Fossil Rim Wildlife Safari</a></li>
+    <li><i class="fa-solid fa-utensils"></i><strong>6:30 PM:</strong> Dinner at Riverhouse Grill</li>
+    <li><i class="fa-solid fa-star"></i><strong>8:00 PM:</strong> Evening creekside stroll</li>
+  </ul>
+</details>
+
+<details>
+  <summary><i class="fa-solid fa-arrow-up-right-from-square"></i> Thursday, May 29 – Glen Rose → Fort Worth</summary>
+  <div class="weather">
+    <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
+      <strong>Forecast (Glen Rose, TX 76043):</strong> 🌥️ High: 85°F, 🌙 Low: 65°F, Scattered storms, 60% rain chance
+    </a>
+  </div>
+  <ul>
+    <li><i class="fa-solid fa-walking"></i><strong>8:00 AM:</strong> Morning hike</li>
+    <li><i class="fa-solid fa-box-open"></i><strong>9:00 AM:</strong> Final breakfast & pack-up</li>
+    <li><i class="fa-solid fa-sign-out"></i><strong>11:00 AM:</strong> Depart Glen Rose</li>
+    <li class="route">To Fort Worth: ~56 mi, 54 min via US-67 → I-20 W</li>
+    <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
+    <li><i class="fa-solid fa-home"></i><strong>12:00 PM:</strong> Arrive back home</li>
+  </ul>
+</details>
+
+</body>
+</html>
 
 
 
