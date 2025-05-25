@@ -2179,6 +2179,141 @@
         </div>
       </div>
 
+      <!-- Reservation Details Dropdown -->
+      <div class="reservation-dropdown">
+        <button class="reservation-toggle" onclick="toggleReservationDetails()">
+          <div class="reservation-toggle-content">
+            <i class="fa-solid fa-tree"></i>
+            <span>Cypress Valley Reservation Details</span>
+          </div>
+          <i class="fa-solid fa-chevron-down reservation-arrow"></i>
+        </button>
+        
+        <div class="reservation-content" id="reservationContent">
+          <div class="reservation-card-full">
+            <div class="reservation-header-full">
+              <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Confirmation</h4>
+              <div class="reservation-badge-full">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>CONFIRMED</span>
+              </div>
+            </div>
+            <p class="reservation-id">Willow Treehouse • Reservation #344136 • Leah Adamowicz</p>
+            
+            <div class="reservation-sections">
+              <div class="reservation-section">
+                <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
+                <ul>
+                  <li><strong>Check-in:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
+                  <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
+                  <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
+                  <li><strong>Reminder Email:</strong> Sent 2 days prior to arrival with step-by-step instructions</li>
+                  <li><strong>Estimated Arrival:</strong> 4:00 PM</li>
+                </ul>
+              </div>
+              
+              <div class="reservation-section">
+                <h5><i class="fa-solid fa-home"></i> Willow Treehouse Amenities</h5>
+                <ul>
+                  <li><strong>Parking:</strong> Car access near treehouse (pack light for short walk)</li>
+                  <li><strong>Facilities:</strong> Shared shower/bathroom facilities (2-3 minute stroll)</li>
+                  <li><strong>Linens:</strong> All bed linens and towels provided</li>
+                  <li><strong>Kitchen Items:</strong> Mini-fridge with freezer, coffee, water, selection of teas</li>
+                  <li><strong>Equipment:</strong> Electric kettle, cups, mugs</li>
+                  <li><strong>Additional:</strong> Microwave in Welcome Center, propane grills with gas in recreation area</li>
+                </ul>
+              </div>
+              
+              <div class="reservation-section">
+                <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Information</h5>
+                <ul>
+                  <li><strong>Location:</strong> 1223 Paleface Ranch Rd S, Spicewood, TX 78669</li>
+                  <li><strong>Transportation:</strong> Car rental recommended - no rideshare or public transport available</li>
+                  <li><strong>Vehicle Access:</strong> Low clearance vehicles and motorcycles may have difficulty</li>
+                  <li><strong>Required Waivers:</strong> All guests 18+ must complete digital Property Rules & Liability Release Form</li>
+                  <li><strong>Minor Waivers:</strong> All minors must be signed for by parent/guardian</li>
+                  <li><strong>Deadline:</strong> Waivers must be completed before check-in for all party members</li>
+                </ul>
+              </div>
+
+              <div class="reservation-section">
+                <h5><i class="fa-solid fa-ban"></i> Cancellation Policy</h5>
+                <ul>
+                  <li><strong>Refunds:</strong> All reservations are non-refundable</li>
+                  <li><strong>Rescheduling:</strong> Free rescheduling with 30+ days notice</li>
+                  <li><strong>Within 30 Days:</strong> Rescheduling only if your dates rebook</li>
+                </ul>
+              </div>
+
+              <div class="cost-breakdown-full">
+                <h5><i class="fa-solid fa-receipt"></i> Payment Summary</h5>
+                <div class="cost-details">
+                  <div class="cost-row">
+                    <span>Willow Treehouse (2 nights @ $275/night)</span>
+                    <span>$550.00</span>
+                  </div>
+                  <div class="cost-row discount-row">
+                    <span>Weekday Special Discount</span>
+                    <span>-$137.50</span>
+                  </div>
+                  <div class="cost-row">
+                    <span>Subtotal</span>
+                    <span>$412.50</span>
+                  </div>
+                  <div class="cost-row">
+                    <span>Tax</span>
+                    <span>$24.75</span>
+                  </div>
+                  <div class="cost-row total-row">
+                    <span><strong>Total</strong></span>
+                    <span><strong>$437.25</strong></span>
+                  </div>
+                  <div class="payment-info">
+                    <div class="payment-row">
+                      <span><strong>Paid (4/6/2025):</strong> VISA ending in 8394</span>
+                      <span><strong>$437.25</strong></span>
+                    </div>
+                    <div class="payment-row balance">
+                      <span><strong>Balance Due:</strong></span>
+                      <span><strong>$0.00</strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reservation-section contact-section">
+                <h5><i class="fa-solid fa-user"></i> Contact Information</h5>
+                <p><strong>Guest:</strong> Leah Adamowicz<br>
+                <strong>Address:</strong> 5509 Tuxbury Pond Dr, Fort Worth, Texas 76179<br>
+                <strong>Email:</strong> lcadamowicz@yahoo.com<br>
+                <strong>Phone:</strong> 817-773-8113</p>
+              </div>
+            </div>
+            
+            <div class="reservation-actions">
+              <a href="https://www.cypressvalley.com/" target="_blank" class="reservation-action-btn">
+                <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
+              </a>
+              <a href="tel:+15124264635" class="reservation-action-btn">
+                <i class="fa-solid fa-phone"></i> Call Property
+              </a>
+              <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="reservation-action-btn">
+                <i class="fa-solid fa-map-marker-alt"></i> Property Location
+              </a>
+              <a href="mailto:lcadamowicz@yahoo.com" class="reservation-action-btn">
+                <i class="fa-solid fa-envelope"></i> Email Confirmation
+              </a>
+            </div>
+
+            <div class="reservation-footer">
+              <p><em>"Our staff will work hard to make your time here something you will always remember. We look forward to providing you with an exciting adventure!"</em></p>
+              <p><strong>- Amy Beilharz, Co-owner</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Restaurant Guide Section -->
     <div class="restaurant-guide">
       <div class="restaurant-title">
@@ -2203,85 +2338,10 @@
       <div class="restaurant-grid active" id="spicewood-restaurants">
         <div class="restaurant-card reservation-card">
           <div class="restaurant-header">
-            <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Details</h4>
-            <div class="rating reservation-badge">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>CONFIRMED</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Willow Treehouse • Reservation #344136</p>
-          <div class="reservation-details">
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
-              <ul>
-                <li><strong>Date:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
-                <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
-                <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
-                <li><strong>Reminder:</strong> Email sent 2 days prior to arrival</li>
-              </ul>
-            </div>
             
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-home"></i> Amenities Included</h5>
-              <ul>
-                <li>Car access near treehouse (pack light for short walk)</li>
-                <li>Shared shower/bathroom facilities (2-3 min stroll)</li>
-                <li>All linens provided</li>
-                <li>Mini-fridge with freezer, coffee, water, teas</li>
-                <li>Electric kettle, cups, mugs</li>
-                <li>Microwave in Welcome Center</li>
-                <li>Propane grills with gas in recreation area</li>
-              </ul>
-            </div>
-            
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Notes</h5>
-              <ul>
-                <li><strong>Transportation:</strong> Car rental recommended (no rideshare/public transport)</li>
-                <li><strong>Vehicle:</strong> Low clearance vehicles & motorcycles may have difficulty</li>
-                <li><strong>Waivers:</strong> All guests 18+ must complete digital liability forms</li>
-                <li><strong>Cancellation:</strong> Non-refundable, reschedule free with 30+ days notice</li>
-              </ul>
-            </div>
-
-            <div class="cost-breakdown">
-              <h5><i class="fa-solid fa-receipt"></i> Cost Breakdown</h5>
-              <div class="cost-item">
-                <span>Willow Treehouse (2 nights)</span>
-                <span>$550.00</span>
-              </div>
-              <div class="cost-item discount">
-                <span>Weekday Special Discount</span>
-                <span>-$137.50</span>
-              </div>
-              <div class="cost-item">
-                <span>Subtotal</span>
-                <span>$412.50</span>
-              </div>
-              <div class="cost-item">
-                <span>Tax</span>
-                <span>$24.75</span>
-              </div>
-              <div class="cost-item total">
-                <span><strong>Total Paid</strong></span>
-                <span><strong>$437.25</strong></span>
-              </div>
             </div>
           </div>
-          
-          <div class="restaurant-links">
-            <a href="https://www.cypressvalley.com/" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
-            </a>
-            <a href="tel:+15124264635" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call Property
-            </a>
-            <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Property Location
-            </a>
-          </div>
-        </div>
-
+         
         <div class="restaurant-card">
           <div class="restaurant-header">
             <h4>The Salt Traders Coastal Cooking</h4>
