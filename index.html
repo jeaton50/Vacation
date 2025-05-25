@@ -2,165 +2,1391 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Enhanced Texas Hill Country Itinerary with Fixed Weather Links</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Hill Country Road Trip Itinerary</title>
+  
   <!-- Font Awesome for icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     crossorigin="anonymous"
   />
-
+  
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
-    h1 { color: #2c3e50; text-align: center; }
-    details { margin-bottom: 1.5em; border: 1px solid #ccc; border-radius: 5px; padding: 0.5em; background: #f9f9f9; }
-    summary { font-size: 1.2em; font-weight: bold; cursor: pointer; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin: 0.5em 0; }
-    .route { margin-left: 1.5em; font-style: italic; color: #555; }
-    .weather { background: #eef; padding: 0.5em; border-radius: 4px; margin-bottom: 0.5em; }
-    .weather a { color: #2980b9; text-decoration: none; }
-    .calendar { font-size: 0.9em; margin-left: 0.3em; }
-    .map-link { margin-left: 1.5em; font-size: 0.9em; }
-    @media (max-width: 600px) { body { font-size: 16px; } }
+    :root {
+      --primary-color: #2c5530;
+      --secondary-color: #8b5a3c;
+      --accent-color: #d4af37;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --background-light: #f8f9fa;
+      --card-background: #ffffff;
+      --border-color: #e1e8ed;
+      --success-color: #27ae60;
+      --warning-color: #f39c12;
+      --info-color: #3498db;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: var(--card-background);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 2.8rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .trip-dates {
+      position: relative;
+      z-index: 1;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .progress-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      z-index: 1000;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    .day-card {
+      background: var(--card-background);
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .day-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .day-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .day-header:hover {
+      background: linear-gradient(135deg, #1e3d21, #6b4430);
+    }
+
+    .day-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+    }
+
+    .day-header:hover::before {
+      left: 100%;
+    }
+
+    .day-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .day-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .expand-icon {
+      font-size: 1.4rem;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
+
+    .day-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .weather-banner {
+      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      color: white;
+      padding: 1.2rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weather-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .weather-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .weather-location {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .weather-details {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .weather-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .day-content {
+      display: none;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #fafafa, #ffffff);
+    }
+
+    .day-card.expanded .day-content {
+      display: block;
+      animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .activity-list {
+      list-style: none;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      background: var(--card-background);
+      border-radius: 15px;
+      border-left: 5px solid var(--accent-color);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .activity-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(44, 85, 48, 0.05));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .activity-item:hover::before {
+      opacity: 1;
+    }
+
+    .activity-item:hover {
+      transform: translateX(8px) translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-left-color: var(--primary-color);
+    }
+
+    .activity-icon {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-top: 0.3rem;
+      min-width: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .activity-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .activity-time {
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .activity-description {
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .route-info {
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border: 1px solid #f6d55c;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      font-style: italic;
+      color: #856404;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .route-info i {
+      color: #d68910;
+      margin-top: 0.2rem;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.2rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(44, 85, 48, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .link-button:hover::before {
+      left: 100%;
+    }
+
+    .link-button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.4);
+    }
+
+    .calendar-button {
+      background: var(--success-color);
+      box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    }
+
+    .calendar-button:hover {
+      background: #219a52;
+      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+    }
+
+    .weather-button {
+      background: var(--info-color);
+      box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    }
+
+    .weather-button:hover {
+      background: #2980b9;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    }
+
+    .tips-section {
+      background: var(--card-background);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      margin-top: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tips-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(44, 85, 48, 0.1) 0%, transparent 50%);
+    }
+
+    .tips-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+      font-weight: 700;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tip-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #ffffff, #f8f9fa);
+      border-radius: 15px;
+      border-left: 4px solid var(--warning-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .tip-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-left-color: var(--accent-color);
+    }
+
+    .tip-icon {
+      color: var(--warning-color);
+      font-size: 1.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .tip-text {
+      color: var(--text-dark);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(100px);
+      z-index: 999;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      
+      header {
+        padding: 2rem;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .day-title {
+        font-size: 1.2rem;
+      }
+      
+      .weather-details {
+        gap: 1rem;
+      }
+      
+      .weather-item {
+        font-size: 0.85rem;
+      }
+      
+      .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 1.2rem;
+      }
+      
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .button-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .link-button {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+      }
+      
+      .trip-dates {
+        font-size: 1rem;
+      }
+      
+      .day-header {
+        padding: 1rem;
+      }
+      
+      .day-title {
+        font-size: 1rem;
+        line-height: 1.3;
+      }
+      
+      .day-icon {
+        font-size: 1.4rem;
+      }
+      
+      .day-content {
+        padding: 1rem;
+      }
+      
+      .weather-banner {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      
+      .weather-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        width: 100%;
+      }
+      
+      .weather-item {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+      }
+      
+      .activity-item {
+        padding: 1rem;
+      }
+      
+      .activity-time {
+        font-size: 1rem;
+      }
+      
+      .route-info {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+      }
+      
+      .link-button {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .tips-title {
+        font-size: 1.4rem;
+      }
+      
+      .tip-item {
+        padding: 1rem;
+      }
+      
+      .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+
+    /* Additional mobile touch improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .activity-item:hover {
+        transform: none;
+      }
+      
+      .activity-item:active {
+        transform: translateX(4px);
+        transition: transform 0.1s ease;
+      }
+      
+      .link-button:hover {
+        transform: none;
+      }
+      
+      .link-button:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+      }
+      
+      .day-card:hover {
+        transform: none;
+      }
+    }
+
+    /* Improved text readability on mobile */
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      
+      .activity-description {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      
+      /* Prevent zoom on input focus for iOS */
+      input, select, textarea {
+        font-size: 16px;
+      }
+    }
+
     @media print {
-      body { margin: 0; font-size: 12pt; }
-      a[href]:after { content: ""; }
-      details summary { display: block; }
-      .calendar { display: none; }
-      details { border: none; padding: 0; background: none; }
+      body {
+        background: white;
+        font-size: 11pt;
+        line-height: 1.4;
+      }
+      
+      .container {
+        max-width: none;
+        padding: 0;
+      }
+      
+      .day-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+      
+      .day-content {
+        display: block !important;
+      }
+      
+      .link-button, .scroll-top, .progress-indicator {
+        display: none !important;
+      }
+      
+      .weather-banner {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+      }
+      
+      .day-header {
+        background: #e0e0e0 !important;
+        color: #333 !important;
+      }
+      
+      .activity-item {
+        break-inside: avoid;
+        margin-bottom: 0.5rem;
+      }
+      
+      .tips-section {
+        break-inside: avoid;
+      }
+      
+      h1 {
+        color: #333 !important;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="progress-indicator" id="progressBar"></div>
+  
+  <div class="container">
+    <header>
+      <h1><i class="fa-solid fa-route"></i> Texas Hill Country Road Trip Itinerary</h1>
+      <p class="trip-dates">May 25-29, 2025 • 5 Days of Adventure in the Heart of Texas</p>
+    </header>
 
-  <h1>🗺️ Texas Hill Country Road Trip Itinerary</h1>
-
-  <!-- Sunday -->
-  <details open>
-    <summary><i class="fa-solid fa-sun"></i> Sunday, May 25 – Fort Worth → Cypress Valley</summary>
-    <div class="weather">
-      <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
-        <strong>Forecast (Spicewood, TX 78669):</strong> ☀️ High: 97°F, 🌙 Low: 78°F, Humid, 20% rain chance
-      </a>
-    </div>
-    <ul>
-      <li><i class="fa-solid fa-location-dot"></i> <strong>1:00 PM:</strong> Depart <em>3065 Hopewell Ln, Fort Worth, TX</em></li>
-      <li class="route">Route (~170 mi, 3 h 26 m): I‑35W S → I‑35 S → US‑290 W → TX‑71 E → Paleface Ranch Rd S</li>
-      <li class="map-link">
-        <a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank">
-          <i class="fa-solid fa-map"></i> View Route
+    <!-- Sunday -->
+    <div class="day-card" data-day="1">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-sun day-icon"></i>
+          <span>Sunday, May 25 – Fort Worth → Cypress Valley</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-sun" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">Spicewood, TX 78669</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 97°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 78°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-droplet"></i>
+            <span>Humid, 20% rain</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
         </a>
-      </li>
-      <li><i class="fa-solid fa-key"></i> <strong>4:00 PM:</strong> Check‑in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a>
-        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">➕ Add to Calendar</a>
-      </li>
-      <li><i class="fa-solid fa-mug-hot"></i> <strong>5:00 PM:</strong> Leisure: espresso/tea, lawn games, hammocks</li>
-      <li><i class="fa-solid fa-utensils"></i> <strong>6:00 PM:</strong> Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie’s Barbecue</a></li>
-      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Stargazing at the communal fire pit</li>
-    </ul>
-  </details>
-
-  <!-- Monday -->
-  <details>
-    <summary><i class="fa-solid fa-cloud-sun"></i> Monday, May 26 – Cypress Valley Activities</summary>
-    <div class="weather">
-      <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank">
-        <strong>Forecast (Spicewood, TX 78669):</strong> 🌤️ High: 93°F, 🌙 Low: 72°F, Breezy, 30% rain chance
-      </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-location-dot activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">1:00 PM</div>
+              <div class="activity-description">Depart from <em>3065 Hopewell Ln, Fort Worth, TX</em></div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>Route (~170 mi, 3h 26m): I‑35W S → I‑35 S → US‑290 W → TX‑71 E → Paleface Ranch Rd S</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-key activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">4:00 PM</div>
+              <div class="activity-description">Check‑in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a></div>
+              <div class="button-group">
+                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">
+                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-mug-hot activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">5:00 PM</div>
+              <div class="activity-description">Leisure time: espresso/tea, lawn games, hammocks</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:00 PM</div>
+              <div class="activity-description">Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie's Barbecue</a></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-star activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 PM</div>
+              <div class="activity-description">Stargazing at the communal fire pit</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul>
-      <li><i class="fa-solid fa-dumbbell"></i> <strong>8:00 AM:</strong> Yoga on the creek‑side platform</li>
-      <li><i class="fa-solid fa-bread-slice"></i> <strong>10:00 AM:</strong> Breakfast in‑cabin or Spicewood Station Café</li>
-      <li><i class="fa-solid fa-hiking"></i> <strong>11:30 AM:</strong> Muleshoe Bend Recreation Area (20 min)
-        <a class="map-link" href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank"><i class="fa-solid fa-map"></i> View Route</a>
-      </li>
-      <li><i class="fa-solid fa-utensils"></i> <strong>1:00 PM:</strong> Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></li>
-      <li><i class="fa-solid fa-swimmer"></i> <strong>2:00 PM:</strong> Swim & relax at the infinity pool</li>
-      <li><i class="fa-solid fa-music"></i> <strong>6:30 PM:</strong> Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel’s Icehouse</a></li>
-      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Deck time with craft drinks</li>
-    </ul>
-  </details>
 
-  <!-- Tuesday -->
-  <details>
-    <summary><i class="fa-solid fa-tree-city"></i> Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</summary>
-    <div class="weather">
-      <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank">
-        <strong>Forecast (New Braunfels, TX 78132):</strong> ☁️ High: 90°F, 🌙 Low: 69°F, Overcast, 50% rain chance
-      </a>
+    <!-- Monday -->
+    <div class="day-card" data-day="2">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-cloud-sun day-icon"></i>
+          <span>Monday, May 26 – Cypress Valley Activities</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-cloud-sun" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">Spicewood, TX 78669</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 93°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 72°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-wind"></i>
+            <span>Breezy</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-droplet"></i>
+            <span>30% rain</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
+        </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-dumbbell activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 AM</div>
+              <div class="activity-description">Yoga on the creek‑side platform</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-bread-slice activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">10:00 AM</div>
+              <div class="activity-description">Breakfast in‑cabin or Spicewood Station Café</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-hiking activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">11:30 AM</div>
+              <div class="activity-description">Muleshoe Bend Recreation Area (20 min drive)</div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">1:00 PM</div>
+              <div class="activity-description">Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-swimmer activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:00 PM</div>
+              <div class="activity-description">Swim & relax at the infinity pool</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-music activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:30 PM</div>
+              <div class="activity-description">Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel's Icehouse</a></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-star activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 PM</div>
+              <div class="activity-description">Deck time with craft drinks</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul>
-      <li><i class="fa-solid fa-bread-slice"></i> <strong>8:00 AM:</strong> Breakfast tacos & coffee</li>
-      <li><i class="fa-solid fa-sign-out"></i> <strong>11:00 AM:</strong> Check‑out & depart Cypress Valley</li>
-      <li class="route">To Camp Fimfo: ~78 mi, 1 h 23 m via TX‑71 W → US‑281 S → FM 360 E</li>
-      <li class="map-link"><a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-      <li><i class="fa-solid fa-location-dot"></i> <strong>2:00 PM:</strong> Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a>
-        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way+New+Braunfels+TX" target="_blank">➕ Add to Calendar</a>
-      </li>
-      <li><i class="fa-solid fa-roller-coaster"></i> <strong>2:30 PM:</strong> On‑site fun: roller coaster, water playground, mini‑golf</li>
-      <li><i class="fa-solid fa-road"></i> <strong>4:00 PM:</strong> Depart for Skybox Cabins</li>
-      <li class="route">To Skybox: ~203 mi, 3 h 39 m via FM 360 W → US‑281 N → TX‑220 E → US‑67 W</li>
-      <li class="map-link"><a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-      <li><i class="fa-solid fa-key"></i> <strong>6:45 PM:</strong> Check‑in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a>
-        <a class="calendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Skybox+Cabins&dates=20250527T184500/20250527T190000&location=443+E+Chapman+St+Glen+Rose+TX" target="_blank">➕ Add to Calendar</a>
-      </li>
-      <li><i class="fa-solid fa-fire"></i> <strong>8:00 PM:</strong> Cabin campfire & s’mores</li>
-    </ul>
-  </details>
 
-  <!-- Wednesday -->
-  <details>
-    <summary><i class="fa-solid fa-dinosaur"></i> Wednesday, May 28 – Glen Rose Adventures</summary>
-    <div class="weather">
-      <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
-        <strong>Forecast (Glen Rose, TX 76043):</strong> ⛈️ High: 79°F, 🌙 Low: 66°F, Morning storms, then cloudy, 40% rain chance
-      </a>
+    <!-- Tuesday -->
+    <div class="day-card" data-day="3">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-tree-city day-icon"></i>
+          <span>Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-cloud" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">New Braunfels, TX 78132</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 90°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 69°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-cloud"></i>
+            <span>Overcast</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-droplet"></i>
+            <span>50% rain</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
+        </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-bread-slice activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 AM</div>
+              <div class="activity-description">Breakfast tacos & coffee</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-sign-out activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">11:00 AM</div>
+              <div class="activity-description">Check‑out & depart Cypress Valley</div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>To Camp Fimfo: ~78 mi, 1h 23m via TX‑71 W → US‑281 S → FM 360 E</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-location-dot activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:00 PM</div>
+              <div class="activity-description">Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a></div>
+              <div class="button-group">
+                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way+New+Braunfels+TX" target="_blank">
+                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-roller-coaster activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:30 PM</div>
+              <div class="activity-description">On‑site fun: roller coaster, water playground, mini‑golf</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-road activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">4:00 PM</div>
+              <div class="activity-description">Depart for Skybox Cabins</div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>To Skybox: ~203 mi, 3h 39m via FM 360 W → US‑281 N → TX‑220 E → US‑67 W</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-key activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:45 PM</div>
+              <div class="activity-description">Check‑in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a></div>
+              <div class="button-group">
+                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Skybox+Cabins&dates=20250527T184500/20250527T190000&location=443+E+Chapman+St+Glen+Rose+TX" target="_blank">
+                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-fire activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 PM</div>
+              <div class="activity-description">Cabin campfire & s'mores</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul>
-      <li><i class="fa-solid fa-bread-slice"></i> <strong>8:00 AM:</strong> Cabin breakfast or Rob’s Bakery pastries</li>
-      <li><i class="fa-solid fa-footprints"></i> <strong>9:30 AM:</strong> Dinosaur Valley State Park</li>
-      <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/Dinosaur+Valley+State+Park" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-      <li><i class="fa-solid fa-utensils"></i> <strong>1:00 PM:</strong> Lunch at The Green Pickle</li>
-      <li><i class="fa-solid fa-hippo"></i> <strong>2:30 PM:</strong> Fossil Rim Wildlife Center safari</li>
-      <li class="map-link"><a href="https://www.google.com/maps/dir/Dinosaur+Valley+State+Park/Fossil+Rim+Wildlife+Center" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-      <li><i class="fa-solid fa-utensils"></i> <strong>6:30 PM:</strong> Dinner at Riverhouse Grill</li>
-      <li><i class="fa-solid fa-star"></i> <strong>8:00 PM:</strong> Moonlit creek‑side stroll</li>
-    </ul>
-  </details>
 
-  <!-- Thursday -->
-  <details>
-    <summary><i class="fa-solid fa-arrow-up-right-from-square"></i> Thursday, May 29 – Glen Rose → Fort Worth</summary>
-    <div class="weather">
-      <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank">
-        <strong>Forecast (Glen Rose, TX 76043):</strong> 🌥️ High: 85°F, 🌙 Low: 65°F, Scattered storms, 60% rain chance
-      </a>
+    <!-- Wednesday -->
+    <div class="day-card" data-day="4">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-paw day-icon"></i>
+          <span>Wednesday, May 28 – Glen Rose Adventures</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-cloud-bolt" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">Glen Rose, TX 76043</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 79°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 66°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-cloud-bolt"></i>
+            <span>Morning storms</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-droplet"></i>
+            <span>40% rain</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
+        </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-bread-slice activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 AM</div>
+              <div class="activity-description">Cabin breakfast or Rob's Bakery pastries</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-footprints activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">9:30 AM</div>
+              <div class="activity-description">Dinosaur Valley State Park</div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/Dinosaur+Valley+State+Park" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">1:00 PM</div>
+              <div class="activity-description">Lunch at The Green Pickle</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-hippo activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:30 PM</div>
+              <div class="activity-description">Fossil Rim Wildlife Center safari</div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/Dinosaur+Valley+State+Park/Fossil+Rim+Wildlife+Center" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:30 PM</div>
+              <div class="activity-description">Dinner at Riverhouse Grill</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-star activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 PM</div>
+              <div class="activity-description">Moonlit creek‑side stroll</div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul>
-      <li><i class="fa-solid fa-walking"></i> <strong>8:00 AM:</strong> Morning walk among oak‑cedar pastures</li>
-      <li><i class="fa-solid fa-box-open"></i> <strong>9:00 AM:</strong> Final breakfast & pack</li>
-      <li><i class="fa-solid fa-sign-out"></i> <strong>11:00 AM:</strong> Check‑out & depart Glen Rose</li>
-      <li class="route">Route home (56 mi, 54 m): US‑67 E → I‑20 W → I‑30 W → Riverside Blvd → local streets</li>
-      <li class="map-link"><a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank"><i class="fa-solid fa-map"></i> View Route</a></li>
-      <li><i class="fa-solid fa-home"></i> <strong>12:00 PM:</strong> Arrive back at Fort Worth</li>
-    </ul>
-  </details>
 
-  <h2>📦 Pack & Pro Tips</h2>
-  <ul>
-    <li>Layered clothing (day: mid‑80s°F; night: low‑60s°F)</li>
-    <li>Hiking shoes + water‑friendly footwear</li>
-    <li>Binoculars, reusable water bottle, phone charger</li>
-    <li>Allow 15–30 min buffer each leg</li>
-    <li>Check live traffic on Google Maps/Waze before departing</li>
-  </ul>
+    <!-- Thursday -->
+    <div class="day-card" data-day="5">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-arrow-up-right-from-square day-icon"></i>
+          <span>Thursday, May 29 – Glen Rose → Fort Worth</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-cloud-rain" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">Glen Rose, TX 76043</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 85°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 65°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-cloud-bolt"></i>
+            <span>Scattered storms</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-droplet"></i>
+            <span>60% rain</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
+        </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-walking activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 AM</div>
+              <div class="activity-description">Morning walk among oak‑cedar pastures</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-box-open activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">9:00 AM</div>
+              <div class="activity-description">Final breakfast & pack</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-sign-out activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">11:00 AM</div>
+              <div class="activity-description">Check‑out & depart Glen Rose</div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>Route home (56 mi, 54m): US‑67 E → I‑20 W → I‑30 W → Riverside Blvd → local streets</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-home activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">12:00 PM</div>
+              <div class="activity-description">Arrive back at Fort Worth</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Tips Section -->
+    <div class="tips-section">
+      <div class="tips-title">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>Pack & Pro Tips</span>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <i class="fa-solid fa-tshirt tip-icon"></i>
+          <div class="tip-text">Layered clothing (day: mid‑80s°F; night: low‑60s°F)</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-hiking tip-icon"></i>
+          <div class="tip-text">Hiking shoes + water‑friendly footwear</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-binoculars tip-icon"></i>
+          <div class="tip-text">Binoculars, reusable water bottle, phone charger</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-clock tip-icon"></i>
+          <div class="tip-text">Allow 15–30 min buffer each leg</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-route tip-icon"></i>
+          <div class="tip-text">Check live traffic on Google Maps/Waze before departing</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <script>
+    // Mobile-specific interactions
+    let isMobile = window.innerWidth <= 768;
+    
+    window.addEventListener('resize', function() {
+      isMobile = window.innerWidth <= 768;
+    });
+
+    // Toggle day cards
+    function toggleDay(header) {
+      const card = header.closest('.day-card');
+      card.classList.toggle('expanded');
+      
+      // On mobile, scroll the expanded card into view
+      if (isMobile && card.classList.contains('expanded')) {
+        setTimeout(() => {
+          card.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 300);
+      }
+      
+      // Update scroll progress when expanding/collapsing
+      setTimeout(updateScrollProgress, 300);
+    }
+
+    // Scroll progress indicator
+    function updateScrollProgress() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    }
+
+    // Scroll to top functionality
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Show/hide scroll to top button
+    function toggleScrollTopButton() {
+      const scrollTopBtn = document.getElementById('scrollTopBtn');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+
+    // Event listeners
+    window.addEventListener('scroll', function() {
+      updateScrollProgress();
+      toggleScrollTopButton();
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Open first day by default
+      const firstCard = document.querySelector('.day-card[data-day="1"]');
+      if (firstCard) {
+        firstCard.classList.add('expanded');
+      }
+      
+      updateScrollProgress();
+      
+      // Add smooth scrolling to all internal links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Add click handlers for activity items to show subtle animation
+      document.querySelectorAll('.activity-item').forEach(item => {
+        item.addEventListener('click', function() {
+          this.style.transform = 'translateX(12px) translateY(-4px)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 200);
+        });
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      // Press 'T' to scroll to top
+      if (e.key === 't' || e.key === 'T') {
+        if (!e.target.matches('input, textarea')) {
+          scrollToTop();
+        }
+      }
+      
+      // Press numbers 1-5 to toggle days
+      const dayNum = parseInt(e.key);
+      if (dayNum >= 1 && dayNum <= 5 && !e.target.matches('input, textarea')) {
+        const dayCard = document.querySelector(`.day-card[data-day="${dayNum}"]`);
+        if (dayCard) {
+          const header = dayCard.querySelector('.day-header');
+          toggleDay(header);
+          dayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+
+    // Add some Easter egg interactions
+    let clickCount = 0;
+    document.querySelector('header h1').addEventListener('click', function() {
+      clickCount++;
+      if (clickCount === 5) {
+        this.style.animation = 'bounce 1s ease-in-out';
+        setTimeout(() => {
+          this.style.animation = '';
+        }, 1000);
+        clickCount = 0;
+      }
+    });
+
+    // Add bounce animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes bounce {
+        0%, 20%, 60%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-20px); }
+        80% { transform: translateY(-10px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
-
-
-
-
-
