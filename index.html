@@ -739,6 +739,398 @@
       box-shadow: 0 4px 12px rgba(44, 85, 48, 0.4);
     }
 
+    /* Special styling for reservation card */
+    .reservation-card {
+      border-left-color: var(--success-color);
+      background: linear-gradient(135deg, #f8fff9, #f0f8f0);
+    }
+
+    .reservation-card:hover {
+      border-left-color: var(--success-color);
+    }
+
+    .reservation-badge {
+      background: var(--success-color);
+    }
+
+    .reservation-details {
+      margin-bottom: 1.5rem;
+    }
+
+    .reservation-info {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .reservation-info h5 {
+      color: var(--primary-color);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .reservation-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .reservation-info li {
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 0.4rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .reservation-info li::before {
+      content: '•';
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .cost-breakdown {
+      background: rgba(44, 85, 48, 0.05);
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cost-breakdown h5 {
+      color: var(--primary-color);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cost-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(44, 85, 48, 0.1);
+      font-size: 0.9rem;
+    }
+
+    .cost-item:last-child {
+      border-bottom: none;
+    }
+
+    .cost-item.discount {
+      color: var(--success-color);
+    }
+
+    .cost-item.total {
+      border-top: 2px solid var(--primary-color);
+      margin-top: 0.5rem;
+      padding-top: 0.8rem;
+      font-size: 1rem;
+      color: var(--primary-color);
+    }
+
+    /* Reservation Dropdown Styles */
+    .reservation-dropdown {
+      background: var(--card-background);
+      border-radius: 20px;
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .reservation-dropdown:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .dropdown-header {
+      background: linear-gradient(135deg, var(--success-color), #27ae60);
+      color: white;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropdown-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+    }
+
+    .dropdown-header:hover::before {
+      left: 100%;
+    }
+
+    .dropdown-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .dropdown-icon {
+      font-size: 1.2rem;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reservation-dropdown.expanded .dropdown-icon {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+      display: none;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #fafafa, #ffffff);
+    }
+
+    .reservation-dropdown.expanded .dropdown-content {
+      display: block;
+      animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .confirmation-letter {
+      max-width: 100%;
+    }
+
+    .letter-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--success-color);
+    }
+
+    .letter-header h3 {
+      color: var(--success-color);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .letter-date {
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .letter-content {
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    .greeting {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .letter-content p {
+      margin-bottom: 1rem;
+    }
+
+    .info-section {
+      background: rgba(39, 174, 96, 0.05);
+      border-left: 4px solid var(--success-color);
+      padding: 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .info-section h4 {
+      color: var(--success-color);
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .closing {
+      font-style: italic;
+      margin: 2rem 0 1rem 0;
+      padding: 1rem;
+      background: rgba(39, 174, 96, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    .reservation-summary {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 3px solid var(--success-color);
+    }
+
+    .reservation-summary h3 {
+      color: var(--success-color);
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .guest-info {
+      background: var(--background-light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      margin-bottom: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      font-weight: 600;
+      color: var(--primary-color);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .value {
+      color: var(--text-dark);
+    }
+
+    .booking-details {
+      background: rgba(39, 174, 96, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .booking-details h4 {
+      color: var(--success-color);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .treehouse {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .stay-dates {
+      margin: 1rem 0;
+    }
+
+    .date-item {
+      padding: 0.4rem 0;
+      color: var(--text-dark);
+    }
+
+    .departure {
+      font-weight: 600;
+      color: var(--success-color);
+      margin-top: 0.5rem;
+    }
+
+    .discount-item {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(39, 174, 96, 0.2);
+    }
+
+    .discount-amount {
+      color: var(--success-color);
+      font-weight: 600;
+    }
+
+    .payment-summary {
+      background: var(--background-light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .total-row {
+      border-top: 2px solid var(--success-color);
+      margin-top: 0.5rem;
+      padding-top: 0.8rem;
+      font-size: 1.1rem;
+      color: var(--success-color);
+    }
+
+    .payment-info {
+      background: rgba(39, 174, 96, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .payment-info h4 {
+      color: var(--success-color);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .payment-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(39, 174, 96, 0.2);
+    }
+
+    .payment-totals {
+      margin-top: 1rem;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.3rem 0;
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 15px;
@@ -820,6 +1212,49 @@
       
       .restaurant-link {
         justify-content: center;
+      }
+    }
+
+      .reservation-dropdown {
+        margin-top: 1.5rem;
+      }
+      
+      .dropdown-header {
+        padding: 1.2rem 1rem;
+      }
+      
+      .dropdown-title {
+        font-size: 1.1rem;
+      }
+      
+      .dropdown-content {
+        padding: 1.5rem;
+      }
+      
+      .letter-header h3 {
+        font-size: 1.3rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .info-row {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .label {
+        min-width: auto;
+      }
+      
+      .summary-row, .payment-item, .discount-item {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: left;
+      }
+      
+      .payment-row {
+        flex-direction: column;
+        gap: 0.2rem;
       }
     }
 
@@ -1536,6 +1971,87 @@
 
       <!-- Spicewood Restaurants -->
       <div class="restaurant-grid active" id="spicewood-restaurants">
+        <div class="restaurant-card reservation-card">
+          <div class="restaurant-header">
+            <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Details</h4>
+            <div class="rating reservation-badge">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>CONFIRMED</span>
+            </div>
+          </div>
+          <p class="cuisine-type">Willow Treehouse • Reservation #344136</p>
+          <div class="reservation-details">
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
+              <ul>
+                <li><strong>Date:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
+                <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
+                <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
+                <li><strong>Reminder:</strong> Email sent 2 days prior to arrival</li>
+              </ul>
+            </div>
+            
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-home"></i> Amenities Included</h5>
+              <ul>
+                <li>Car access near treehouse (pack light for short walk)</li>
+                <li>Shared shower/bathroom facilities (2-3 min stroll)</li>
+                <li>All linens provided</li>
+                <li>Mini-fridge with freezer, coffee, water, teas</li>
+                <li>Electric kettle, cups, mugs</li>
+                <li>Microwave in Welcome Center</li>
+                <li>Propane grills with gas in recreation area</li>
+              </ul>
+            </div>
+            
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Notes</h5>
+              <ul>
+                <li><strong>Transportation:</strong> Car rental recommended (no rideshare/public transport)</li>
+                <li><strong>Vehicle:</strong> Low clearance vehicles & motorcycles may have difficulty</li>
+                <li><strong>Waivers:</strong> All guests 18+ must complete digital liability forms</li>
+                <li><strong>Cancellation:</strong> Non-refundable, reschedule free with 30+ days notice</li>
+              </ul>
+            </div>
+
+            <div class="cost-breakdown">
+              <h5><i class="fa-solid fa-receipt"></i> Cost Breakdown</h5>
+              <div class="cost-item">
+                <span>Willow Treehouse (2 nights)</span>
+                <span>$550.00</span>
+              </div>
+              <div class="cost-item discount">
+                <span>Weekday Special Discount</span>
+                <span>-$137.50</span>
+              </div>
+              <div class="cost-item">
+                <span>Subtotal</span>
+                <span>$412.50</span>
+              </div>
+              <div class="cost-item">
+                <span>Tax</span>
+                <span>$24.75</span>
+              </div>
+              <div class="cost-item total">
+                <span><strong>Total Paid</strong></span>
+                <span><strong>$437.25</strong></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="restaurant-links">
+            <a href="https://www.cypressvalley.com/" target="_blank" class="restaurant-link">
+              <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
+            </a>
+            <a href="tel:+15124264635" class="restaurant-link">
+              <i class="fa-solid fa-phone"></i> Call Property
+            </a>
+            <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="restaurant-link">
+              <i class="fa-solid fa-map-marker-alt"></i> Property Location
+            </a>
+          </div>
+        </div>
+
         <div class="restaurant-card">
           <div class="restaurant-header">
             <h4>The Salt Traders Coastal Cooking</h4>
@@ -1652,6 +2168,86 @@
             </a>
             <a href="tel:+15122616300" class="restaurant-link">
               <i class="fa-solid fa-phone"></i> Call
+            </a>
+          </div>
+        </div>
+        <div class="restaurant-card reservation-card">
+          <div class="restaurant-header">
+            <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Details</h4>
+            <div class="rating reservation-badge">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>CONFIRMED</span>
+            </div>
+          </div>
+          <p class="cuisine-type">Willow Treehouse • Reservation #344136</p>
+          <div class="reservation-details">
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
+              <ul>
+                <li><strong>Date:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
+                <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
+                <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
+                <li><strong>Reminder:</strong> Email sent 2 days prior to arrival</li>
+              </ul>
+            </div>
+            
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-home"></i> Amenities Included</h5>
+              <ul>
+                <li>Car access near treehouse (pack light for short walk)</li>
+                <li>Shared shower/bathroom facilities (2-3 min stroll)</li>
+                <li>All linens provided</li>
+                <li>Mini-fridge with freezer, coffee, water, teas</li>
+                <li>Electric kettle, cups, mugs</li>
+                <li>Microwave in Welcome Center</li>
+                <li>Propane grills with gas in recreation area</li>
+              </ul>
+            </div>
+            
+            <div class="reservation-info">
+              <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Notes</h5>
+              <ul>
+                <li><strong>Transportation:</strong> Car rental recommended (no rideshare/public transport)</li>
+                <li><strong>Vehicle:</strong> Low clearance vehicles & motorcycles may have difficulty</li>
+                <li><strong>Waivers:</strong> All guests 18+ must complete digital liability forms</li>
+                <li><strong>Cancellation:</strong> Non-refundable, reschedule free with 30+ days notice</li>
+              </ul>
+            </div>
+
+            <div class="cost-breakdown">
+              <h5><i class="fa-solid fa-receipt"></i> Cost Breakdown</h5>
+              <div class="cost-item">
+                <span>Willow Treehouse (2 nights)</span>
+                <span>$550.00</span>
+              </div>
+              <div class="cost-item discount">
+                <span>Weekday Special Discount</span>
+                <span>-$137.50</span>
+              </div>
+              <div class="cost-item">
+                <span>Subtotal</span>
+                <span>$412.50</span>
+              </div>
+              <div class="cost-item">
+                <span>Tax</span>
+                <span>$24.75</span>
+              </div>
+              <div class="cost-item total">
+                <span><strong>Total Paid</strong></span>
+                <span><strong>$437.25</strong></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="restaurant-links">
+            <a href="https://www.cypressvalley.com/" target="_blank" class="restaurant-link">
+              <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
+            </a>
+            <a href="tel:+15124264635" class="restaurant-link">
+              <i class="fa-solid fa-phone"></i> Call Property
+            </a>
+            <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="restaurant-link">
+              <i class="fa-solid fa-map-marker-alt"></i> Property Location
             </a>
           </div>
         </div>
@@ -1904,6 +2500,152 @@
       </div>
     </div>
 
+      </div>
+    </div>
+
+    <!-- Reservation Details Dropdown -->
+    <div class="reservation-dropdown">
+      <div class="dropdown-header" onclick="toggleReservationDetails()">
+        <div class="dropdown-title">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>Cypress Valley Reservation Details & Confirmation Letter</span>
+        </div>
+        <i class="fa-solid fa-chevron-down dropdown-icon" id="reservationIcon"></i>
+      </div>
+      <div class="dropdown-content" id="reservationContent">
+        <div class="confirmation-letter">
+          <div class="letter-header">
+            <h3><i class="fa-solid fa-envelope-open"></i> Confirmation Letter</h3>
+            <p class="letter-date">Sunday, April 6, 2025</p>
+          </div>
+          
+          <div class="letter-content">
+            <p class="greeting"><strong>Dear Leah,</strong></p>
+            
+            <p>Thank you for your reservation at Cypress Valley's <strong>Willow</strong> checking in on <strong>Sunday, May 25, 2025!</strong> We are looking forward to your visit.</p>
+            
+            <p>To help you get the most out of your time at Cypress Valley please review the information below.</p>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-key"></i> Check in:</h4>
+              <p>We have a self-check-in process that grants access to the property starting at <strong>4 p.m.</strong> A reminder email will be sent out two days prior to your arrival. Step by step arrival instructions and access codes will be sent by text at <strong>3:30 p.m.</strong> the afternoon of your reservation.</p>
+            </div>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-sign-out-alt"></i> Check out:</h4>
+              <p>Check out is at <strong>11 a.m. on Tuesday, May 27, 2025.</strong></p>
+            </div>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-star"></i> Amenities:</h4>
+              <p>At Willow, you will have access to your car and personal belongings near your treehouse, however we still recommend packing light as you will be carrying whatever you bring a short way. You have access to shared shower and bathroom facilities a 2-3 minute stroll from your treehouse. All your linens are provided.</p>
+              
+              <p>Feel free to bring food for your stay, or you can visit one of our local eateries. We provide you with a mini-fridge with freezer compartment, coffee, water, a selection of teas, cups and mugs, and an electric kettle. There is a microwave in the nearby Welcome Center, and propane grills with gas provided in the recreation area.</p>
+            </div>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-ban"></i> Cancellation Policy:</h4>
+              <p>As a reminder, all reservations are <strong>nonrefundable.</strong> If you can't make your booked date, we will reschedule your treehouse reservation free of charge with at least 30 days notice. Within 30 days, your reservation can only be rescheduled if your dates rebook.</p>
+            </div>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-map-marker-alt"></i> Location:</h4>
+              <p>Our property is located at <strong>1223 Paleface Ranch Rd S, Spicewood, TX 78669.</strong> Please note, that we are out in the hill country where public transportation and rideshare services are not easily accessible. If you are flying into Austin, we recommend renting a car. Low clearance vehicles and motorcycles may have difficulty accessing treehouse parking areas.</p>
+            </div>
+
+            <div class="info-section">
+              <h4><i class="fa-solid fa-file-signature"></i> Participant Waivers:</h4>
+              <p>Before you arrive, please take a moment to read and complete your Property Rules & Liability Release Form. All parties over the age of 18 will need to independently complete and sign this document. All minors must be signed for by a parent/guardian. These are digital waivers and can be completed and submitted online. Please be sure to select the correct date of check-in before submitting the form. We must have this document on file for every guest in your party in order for you to check in.</p>
+            </div>
+
+            <p class="closing">Our staff will work hard to make your time here something you will always remember. We look forward to providing you with an exciting adventure!</p>
+            
+            <div class="signature">
+              <p><strong>Amy Beilharz</strong><br>Co-owner</p>
+            </div>
+          </div>
+
+          <div class="reservation-summary">
+            <h3><i class="fa-solid fa-receipt"></i> Reservation Information (#344136) - Leah Adamowicz</h3>
+            
+            <div class="guest-info">
+              <div class="info-row">
+                <span class="label">Guest:</span>
+                <span class="value">Leah Adamowicz</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Address:</span>
+                <span class="value">5509 Tuxbury Pond Dr<br>Fort Worth, Texas 76179, US</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Email:</span>
+                <span class="value">lcadamowicz@yahoo.com</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Phone:</span>
+                <span class="value">817-773-8113</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Estimated Arrival:</span>
+                <span class="value">4:00 PM</span>
+              </div>
+            </div>
+
+            <div class="booking-details">
+              <h4>Weekday Special - $412.50</h4>
+              <div class="stay-details">
+                <div class="stay-item">
+                  <span class="treehouse">🌳 Willow Treehouse - $550.00</span>
+                </div>
+                <div class="stay-dates">
+                  <div class="date-item">Sun, May 25, 2025 — 2 Adults — $275.00</div>
+                  <div class="date-item">Mon, May 26, 2025 — 2 Adults — $275.00</div>
+                  <div class="departure">➥ <strong>Depart: Tue, May 27, 2025</strong></div>
+                </div>
+                <div class="discount-item">
+                  <span>Discount: Willow Treehouse</span>
+                  <span class="discount-amount">($137.50)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-summary">
+              <div class="summary-row">
+                <span>Sub Total:</span>
+                <span>$412.50</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax Total:</span>
+                <span>$24.75</span>
+              </div>
+              <div class="summary-row total-row">
+                <span><strong>Total:</strong></span>
+                <span><strong>$437.25</strong></span>
+              </div>
+            </div>
+
+            <div class="payment-info">
+              <h4><i class="fa-solid fa-credit-card"></i> Payments / Deposits</h4>
+              <div class="payment-item">
+                <span>4/6/2025 VISA ...8394 Leah Adamowicz</span>
+                <span>$437.25</span>
+              </div>
+              <div class="payment-totals">
+                <div class="payment-row">
+                  <span><strong>Paid:</strong></span>
+                  <span><strong>$437.25</strong></span>
+                </div>
+                <div class="payment-row">
+                  <span><strong>Due:</strong></span>
+                  <span><strong>$0.00</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scroll to top button -->
     <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
       <i class="fa-solid fa-chevron-up"></i>
@@ -1928,6 +2670,25 @@
       
       // Add active class to clicked button
       document.querySelector(`[data-location="${location}"]`).classList.add('active');
+    }
+
+    // Reservation dropdown functionality
+    function toggleReservationDetails() {
+      const dropdown = document.querySelector('.reservation-dropdown');
+      const icon = document.getElementById('reservationIcon');
+      
+      dropdown.classList.toggle('expanded');
+      
+      // Smooth scroll to dropdown when opening
+      if (dropdown.classList.contains('expanded')) {
+        setTimeout(() => {
+          dropdown.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 300);
+      }
     }
 
     // Mobile-specific interactions
@@ -2068,6 +2829,9 @@
       }
     `;
     document.head.appendChild(style);
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
