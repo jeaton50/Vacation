@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Texas Hill Country Road Trip Itinerary</title>
+  <title>Colorado Red Rocks Adventure</title>
   
   <!-- Font Awesome for icons -->
   <link
@@ -14,9 +14,11 @@
   
   <style>
     :root {
-      --primary-color: #2c5530;
-      --secondary-color: #8b5a3c;
-      --accent-color: #d4af37;
+      --primary-color: #8B4513;
+      --secondary-color: #CD853F;
+      --accent-color: #FF6B35;
+      --mountain-blue: #4682B4;
+      --forest-green: #228B22;
       --text-dark: #2c3e50;
       --text-light: #7f8c8d;
       --background-light: #f8f9fa;
@@ -24,7 +26,6 @@
       --border-color: #e1e8ed;
       --success-color: #27ae60;
       --warning-color: #f39c12;
-      --info-color: #3498db;
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
     }
@@ -37,7 +38,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #8B4513 100%);
       min-height: 100vh;
       line-height: 1.6;
       color: var(--text-dark);
@@ -67,7 +68,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(45deg, var(--mountain-blue), var(--primary-color));
       opacity: 0.05;
       z-index: 0;
     }
@@ -76,7 +77,7 @@
       position: relative;
       z-index: 1;
       font-size: 2.8rem;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(45deg, var(--primary-color), var(--mountain-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -118,7 +119,7 @@
     }
 
     .day-header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(135deg, var(--primary-color), var(--mountain-blue));
       color: white;
       padding: 1.8rem;
       cursor: pointer;
@@ -131,7 +132,7 @@
     }
 
     .day-header:hover {
-      background: linear-gradient(135deg, #1e3d21, #6b4430);
+      background: linear-gradient(135deg, #654321, #36648B);
     }
 
     .day-header::before {
@@ -173,7 +174,7 @@
     }
 
     .weather-banner {
-      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      background: linear-gradient(135deg, var(--mountain-blue), #5F9EA0);
       color: white;
       padding: 1.2rem 1.8rem;
       display: flex;
@@ -276,7 +277,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(44, 85, 48, 0.05));
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(139, 69, 19, 0.05));
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -357,7 +358,7 @@
       font-size: 0.9rem;
       font-weight: 500;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 8px rgba(44, 85, 48, 0.3);
+      box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -380,27 +381,27 @@
     .link-button:hover {
       background: var(--secondary-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.4);
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
     }
 
-    .calendar-button {
-      background: var(--success-color);
-      box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    .mountain-button {
+      background: var(--mountain-blue);
+      box-shadow: 0 2px 8px rgba(70, 130, 180, 0.3);
     }
 
-    .calendar-button:hover {
-      background: #219a52;
-      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+    .mountain-button:hover {
+      background: #36648B;
+      box-shadow: 0 4px 15px rgba(70, 130, 180, 0.4);
     }
 
     .weather-button {
-      background: var(--info-color);
-      box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+      background: var(--forest-green);
+      box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
     }
 
     .weather-button:hover {
-      background: #2980b9;
-      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+      background: #1F7A1F;
+      box-shadow: 0 4px 15px rgba(34, 139, 34, 0.4);
     }
 
     .tips-section {
@@ -420,8 +421,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(44, 85, 48, 0.1) 0%, transparent 50%);
+      background: radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
     }
 
     .tips-title {
@@ -474,7 +475,6 @@
       font-weight: 500;
     }
 
-    /* Scroll to top button */
     .scroll-top {
       position: fixed;
       bottom: 2rem;
@@ -503,869 +503,6 @@
       background: var(--secondary-color);
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-
-    /* Restaurant Guide Styles */
-    .restaurant-guide {
-      background: var(--card-background);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      margin-top: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .restaurant-guide::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 80%, rgba(44, 85, 48, 0.08) 0%, transparent 50%);
-    }
-
-    .restaurant-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 1.8rem;
-      color: var(--text-dark);
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 1;
-      font-weight: 700;
-    }
-
-    .restaurant-subtitle {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .location-selector {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-    }
-
-    .location-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem 1.5rem;
-      background: var(--background-light);
-      color: var(--text-dark);
-      border: 2px solid transparent;
-      border-radius: 15px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .location-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-
-    .location-btn:hover::before {
-      left: 100%;
-    }
-
-    .location-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .location-btn.active {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      border-color: var(--accent-color);
-      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
-    }
-
-    .restaurant-grid {
-      display: none;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .restaurant-grid.active {
-      display: grid;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .restaurant-card {
-      background: linear-gradient(135deg, #ffffff, #f8f9fa);
-      border-radius: 15px;
-      padding: 1.8rem;
-      border-left: 4px solid var(--accent-color);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .restaurant-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(44, 85, 48, 0.03));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .restaurant-card:hover::before {
-      opacity: 1;
-    }
-
-    .restaurant-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-      border-left-color: var(--primary-color);
-    }
-
-    .restaurant-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.8rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .restaurant-header h4 {
-      color: var(--text-dark);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 0;
-      line-height: 1.3;
-      flex: 1;
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      background: var(--accent-color);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .rating i {
-      font-size: 0.8rem;
-    }
-
-    .cuisine-type {
-      color: var(--secondary-color);
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .restaurant-description {
-      color: var(--text-dark);
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .restaurant-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    .restaurant-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(44, 85, 48, 0.3);
-    }
-
-    .restaurant-link:hover {
-      background: var(--secondary-color);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(44, 85, 48, 0.4);
-    }
-
-    /* Special styling for reservation card */
-    .reservation-card {
-      border-left-color: var(--success-color);
-      background: linear-gradient(135deg, #f8fff9, #f0f8f0);
-    }
-
-    .reservation-card:hover {
-      border-left-color: var(--success-color);
-    }
-
-    .reservation-badge {
-      background: var(--success-color);
-    }
-
-    .reservation-details {
-      margin-bottom: 1.5rem;
-    }
-
-    .reservation-info {
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .reservation-info h5 {
-      color: var(--primary-color);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .reservation-info ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .reservation-info li {
-      color: var(--text-dark);
-      font-size: 0.9rem;
-      line-height: 1.4;
-      margin-bottom: 0.4rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .reservation-info li::before {
-      content: '•';
-      color: var(--accent-color);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-    }
-
-    .cost-breakdown {
-      background: rgba(44, 85, 48, 0.05);
-      border-radius: 10px;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cost-breakdown h5 {
-      color: var(--primary-color);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .cost-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid rgba(44, 85, 48, 0.1);
-      font-size: 0.9rem;
-    }
-
-    .cost-item:last-child {
-      border-bottom: none;
-    }
-
-    .cost-item.discount {
-      color: var(--success-color);
-    }
-
-    .cost-item.total {
-      border-top: 2px solid var(--primary-color);
-      margin-top: 0.5rem;
-      padding-top: 0.8rem;
-      font-size: 1rem;
-      color: var(--primary-color);
-    }
-
-    /* Reservation Dropdown Styles */
-    .reservation-dropdown {
-      margin-top: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .reservation-toggle {
-      width: 100%;
-      background: linear-gradient(135deg, var(--success-color), #219a52);
-      color: white;
-      border: none;
-      border-radius: 15px;
-      padding: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.1rem;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reservation-toggle::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .reservation-toggle:hover::before {
-      left: 100%;
-    }
-
-    .reservation-toggle:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
-    }
-
-    .reservation-toggle-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .reservation-arrow {
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .reservation-dropdown.expanded .reservation-arrow {
-      transform: rotate(180deg);
-    }
-
-    .reservation-content {
-      display: none;
-      background: var(--card-background);
-      border-radius: 0 0 15px 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-top: -5px;
-      position: relative;
-      z-index: 0;
-    }
-
-    .reservation-dropdown.expanded .reservation-content {
-      display: block;
-      animation: slideDownReservation 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    @keyframes slideDownReservation {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .reservation-card-full {
-      padding: 2rem;
-      background: linear-gradient(135deg, #f8fff9, #f0f8f0);
-    }
-
-    .reservation-header-full {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .reservation-header-full h4 {
-      color: var(--primary-color);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .reservation-badge-full {
-      background: var(--success-color);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      white-space: nowrap;
-    }
-
-    .reservation-id {
-      color: var(--text-light);
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-    }
-
-    .reservation-sections {
-      display: grid;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .reservation-section {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 1.5rem;
-      border-left: 4px solid var(--success-color);
-    }
-
-    .reservation-section h5 {
-      color: var(--primary-color);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .reservation-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .reservation-section li {
-      color: var(--text-dark);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 0.6rem;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .reservation-section li::before {
-      content: '✓';
-      color: var(--success-color);
-      font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .cost-breakdown-full {
-      background: rgba(44, 85, 48, 0.05);
-      border-radius: 12px;
-      padding: 1.5rem;
-      border-left: 4px solid var(--accent-color);
-    }
-
-    .cost-breakdown-full h5 {
-      color: var(--primary-color);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .cost-details {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-    }
-
-    .cost-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      font-size: 0.95rem;
-    }
-
-    .cost-row:last-child {
-      border-bottom: none;
-    }
-
-    .discount-row {
-      color: var(--success-color);
-      font-weight: 600;
-    }
-
-    .total-row {
-      border-top: 2px solid var(--primary-color);
-      margin-top: 0.5rem;
-      padding-top: 0.8rem;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-    }
-
-    .payment-info {
-      background: rgba(39, 174, 96, 0.1);
-      border-radius: 6px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-
-    .payment-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    .balance {
-      color: var(--success-color);
-      font-weight: 600;
-    }
-
-    .contact-section {
-      border-left-color: var(--info-color);
-    }
-
-    .contact-section p {
-      margin: 0;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .reservation-actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .reservation-action-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 1rem;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(44, 85, 48, 0.3);
-    }
-
-    .reservation-action-btn:hover {
-      background: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.4);
-    }
-
-    .reservation-footer {
-      background: rgba(212, 175, 55, 0.1);
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      border-left: 4px solid var(--accent-color);
-    }
-
-    .reservation-footer p {
-      margin: 0;
-      font-style: italic;
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
-
-    .reservation-footer p:first-child {
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-    }
-
-    .reservation-footer p:last-child {
-      font-weight: 600;
-      color: var(--secondary-color);
-    }
-
-    /* Cypress Valley Reservation Section at Bottom */
-    .cypress-reservation-section {
-      background: var(--card-background);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-      margin-top: 3rem;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid var(--success-color);
-    }
-
-    .cypress-reservation-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 20%, rgba(44, 85, 48, 0.08) 0%, transparent 50%);
-    }
-
-    .cypress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .cypress-header h2 {
-      color: var(--primary-color);
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .cypress-badge {
-      background: var(--success-color);
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); }
-      50% { box-shadow: 0 6px 20px rgba(39, 174, 96, 0.5); }
-      100% { box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); }
-    }
-
-    .cypress-info-card {
-      background: linear-gradient(135deg, #f8fff9, #f0f8f0);
-      border-radius: 15px;
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cypress-subtitle {
-      color: var(--text-light);
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .cypress-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .cypress-section {
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 15px;
-      padding: 1.8rem;
-      border-left: 5px solid var(--success-color);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-
-    .cypress-section:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .cypress-section h3 {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .cypress-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .cypress-section li {
-      color: var(--text-dark);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .cypress-section li::before {
-      content: '✓';
-      color: var(--success-color);
-      font-weight: bold;
-      font-size: 1.1rem;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .cost-section {
-      border-left-color: var(--accent-color);
-    }
-
-    .cypress-cost-table {
-      background: white;
-      border-radius: 10px;
-      padding: 1.2rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    .cypress-cost-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      font-size: 0.95rem;
-    }
-
-    .cypress-cost-row:last-child {
-      border-bottom: none;
-    }
-
-    .cypress-cost-row.discount {
-      color: var(--success-color);
-      font-weight: 600;
-    }
-
-    .cypress-cost-row.total {
-      border-top: 2px solid var(--primary-color);
-      margin-top: 0.5rem;
-      padding-top: 1rem;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-    }
-
-    .cypress-actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .cypress-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8rem;
-      padding: 1.2rem;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 15px rgba(44, 85, 48, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cypress-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .cypress-btn:hover::before {
-      left: 100%;
-    }
-
-    .cypress-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(44, 85, 48, 0.4);
     }
 
     @media (max-width: 768px) {
@@ -1411,81 +548,6 @@
       
       .link-button {
         align-self: flex-start;
-      }
-    }
-
-      .location-selector {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      
-      .location-btn {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .restaurant-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .restaurant-card {
-        padding: 1.5rem;
-      }
-      
-      .restaurant-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      
-      .rating {
-        align-self: flex-start;
-      }
-      
-      .restaurant-links {
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-      
-      .restaurant-link {
-        justify-content: center;
-      }
-    }
-
-      .reservation-actions {
-        grid-template-columns: 1fr;
-      }
-      
-      .reservation-header-full {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .reservation-badge-full {
-        align-self: flex-start;
-      }
-    }
-
-      .cypress-header {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: center;
-      }
-      
-      .cypress-header h2 {
-        font-size: 1.6rem;
-      }
-      
-      .cypress-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .cypress-actions {
-        grid-template-columns: 1fr;
-      }
-      
-      .cypress-section {
-        padding: 1.5rem;
       }
     }
 
@@ -1571,49 +633,6 @@
       }
     }
 
-    /* Additional mobile touch improvements */
-    @media (hover: none) and (pointer: coarse) {
-      .activity-item:hover {
-        transform: none;
-      }
-      
-      .activity-item:active {
-        transform: translateX(4px);
-        transition: transform 0.1s ease;
-      }
-      
-      .link-button:hover {
-        transform: none;
-      }
-      
-      .link-button:active {
-        transform: scale(0.95);
-        transition: transform 0.1s ease;
-      }
-      
-      .day-card:hover {
-        transform: none;
-      }
-    }
-
-    /* Improved text readability on mobile */
-    @media (max-width: 600px) {
-      body {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-      
-      .activity-description {
-        font-size: 0.95rem;
-        line-height: 1.4;
-      }
-      
-      /* Prevent zoom on input focus for iOS */
-      input, select, textarea {
-        font-size: 16px;
-      }
-    }
-
     @media print {
       body {
         background: white;
@@ -1671,325 +690,339 @@
   
   <div class="container">
     <header>
-      <h1><i class="fa-solid fa-route"></i> Texas Hill Country Road Trip Itinerary</h1>
-      <p class="trip-dates">May 25-29, 2025 • 5 Days of Adventure in the Heart of Texas</p>
+      <h1><i class="fa-solid fa-mountain"></i> Colorado Red Rocks Adventure</h1>
+      <p class="trip-dates">June 6-8, 2025 • Rocky Mountain Adventure from the Heart of Texas</p>
     </header>
 
-    <!-- Sunday -->
+    <!-- Friday -->
     <div class="day-card" data-day="1">
       <div class="day-header" onclick="toggleDay(this)">
         <div class="day-title">
-          <i class="fa-solid fa-sun day-icon"></i>
-          <span>Sunday, May 25 – Fort Worth → Cypress Valley</span>
+          <i class="fa-solid fa-plane-departure day-icon"></i>
+          <span>Friday, June 6 – Travel Day: Fort Worth → Littleton, CO</span>
+        </div>
+        <i class="fa-solid fa-chevron-down expand-icon"></i>
+      </div>
+      <div class="weather-banner">
+        <div class="weather-info">
+          <i class="fa-solid fa-mountain" style="font-size: 1.8rem;"></i>
+          <span class="weather-location">Littleton, CO</span>
+        </div>
+        <div class="weather-details">
+          <div class="weather-item">
+            <i class="fa-solid fa-thermometer-half"></i>
+            <span>High: 78°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-moon"></i>
+            <span>Low: 52°F</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-sun"></i>
+            <span>Sunny</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-eye"></i>
+            <span>Clear views</span>
+          </div>
+        </div>
+        <a href="https://weather.com/weather/today/l/80127:4:US" target="_blank" class="link-button weather-button">
+          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
+        </a>
+      </div>
+      <div class="day-content">
+        <ul class="activity-list">
+          <li class="activity-item">
+            <i class="fa-solid fa-home activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:00-8:00 AM</div>
+              <div class="activity-description">Final packing and departure preparation from <em>5509 Tuxbury Pond Dr, Fort Worth, TX</em></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-route activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">8:00 AM - Departure</div>
+              <div class="activity-description">Begin drive to Littleton, Colorado</div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>Route (~650 miles, 9h 45m): I-35W N → I-35 N → I-25 N → C-470 W to Littleton</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/5509+Tuxbury+Pond+Dr,+Fort+Worth,+TX/5669+S+Alkire+St,+Littleton,+CO+80127" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> View Full Route
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-gas-pump activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">11:30 AM - First Stop</div>
+              <div class="activity-description">
+                <strong>Amarillo, TX</strong> (3.5 hours from Fort Worth) - Fuel up, stretch, and grab snacks
+                <br><em>Recommended: Love's Travel Stop or Buc-ee's for clean facilities and food</em></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:00 PM - Lunch Break</div>
+              <div class="activity-description">
+                <strong>Colorado Springs, CO</strong> (7 hours from Fort Worth) - Lunch and final supply stop
+                <br><em>1 hour remaining to destination - perfect timing for a meal break</em></div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-bed activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:00-7:00 PM - Arrival</div>
+              <div class="activity-description">Check-in at <strong>La Quinta Inn & Suites by Wyndham Littleton/Red Rocks</strong><br>
+              5669 S Alkire Street, Littleton, Colorado, 80127</div>
+              <div class="button-group">
+                <a href="https://www.wyndhamhotels.com/laquinta" target="_blank" class="link-button mountain-button">
+                  <i class="fa-solid fa-hotel"></i> Hotel Website
+                </a>
+                <a href="tel:+17206873800" class="link-button">
+                  <i class="fa-solid fa-phone"></i> Call Hotel
+                </a>
+                <a href="https://www.google.com/maps/place/5669+S+Alkire+St,+Littleton,+CO+80127" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map-marker-alt"></i> Hotel Location
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">7:30 PM</div>
+              <div class="activity-description">Dinner at hotel restaurant or nearby options - Rest up for tomorrow's adventures!</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Saturday -->
+    <div class="day-card" data-day="2">
+      <div class="day-header" onclick="toggleDay(this)">
+        <div class="day-title">
+          <i class="fa-solid fa-mountain-sun day-icon"></i>
+          <span>Saturday, June 7 – Red Rocks & Denver Exploration</span>
         </div>
         <i class="fa-solid fa-chevron-down expand-icon"></i>
       </div>
       <div class="weather-banner">
         <div class="weather-info">
           <i class="fa-solid fa-sun" style="font-size: 1.8rem;"></i>
-          <span class="weather-location">Spicewood, TX 78669</span>
+          <span class="weather-location">Red Rocks Area</span>
         </div>
         <div class="weather-details">
           <div class="weather-item">
             <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 97°F</span>
+            <span>High: 82°F</span>
           </div>
           <div class="weather-item">
             <i class="fa-solid fa-moon"></i>
-            <span>Low: 78°F</span>
+            <span>Low: 55°F</span>
           </div>
           <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>Humid, 20% rain</span>
+            <i class="fa-solid fa-sun"></i>
+            <span>Perfect weather</span>
+          </div>
+          <div class="weather-item">
+            <i class="fa-solid fa-wind"></i>
+            <span>Light breeze</span>
           </div>
         </div>
-        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button weather-button">
+        <a href="https://weather.com/weather/today/l/80465:4:US" target="_blank" class="link-button weather-button">
           <i class="fa-solid fa-external-link-alt"></i> Full Forecast
         </a>
       </div>
       <div class="day-content">
         <ul class="activity-list">
           <li class="activity-item">
-            <i class="fa-solid fa-location-dot activity-icon"></i>
+            <i class="fa-solid fa-coffee activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Depart from <em>3065 Hopewell Ln, Fort Worth, TX</em></div>
+              <div class="activity-time">8:00 AM</div>
+              <div class="activity-description">Hotel breakfast and preparation for the day</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-mountain activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">9:30 AM</div>
+              <div class="activity-description">Lookout Mountain Park & Buffalo Bill's Grave (20 minutes from hotel)</div>
               <div class="route-info">
-                <i class="fa-solid fa-route"></i>
-                <span>Route (~170 mi, 3h 26m): I‑35W S → I‑35 S → US‑290 W → TX‑71 E → Paleface Ranch Rd S</span>
+                <i class="fa-solid fa-info-circle"></i>
+                <span>Stunning panoramic views of Denver and the Front Range. Visit Buffalo Bill's grave and museum. Great photo opportunities!</span>
               </div>
               <div class="button-group">
-                <a href="https://www.google.com/maps/dir/3065+Hopewell+Ln,+Fort+Worth,+TX/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
+                <a href="https://www.google.com/maps/dir/5669+S+Alkire+St,+Littleton,+CO+80127/Lookout+Mountain+Park,+Golden,+CO" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> Directions to Lookout Mountain
+                </a>
+                <a href="https://www.buffalobill.org/" target="_blank" class="link-button mountain-button">
+                  <i class="fa-solid fa-external-link-alt"></i> Buffalo Bill Museum
                 </a>
               </div>
             </div>
           </li>
           <li class="activity-item">
-            <i class="fa-solid fa-key activity-icon"></i>
+            <i class="fa-solid fa-hiking activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">4:00 PM</div>
-              <div class="activity-description">Check‑in at <a href="https://www.cypressvalley.com/" target="_blank">Cypress Valley Treehouses</a></div>
-              <div class="button-group">
-                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Cypress+Valley&dates=20250525T160000/20250525T163000&location=1223+Paleface+Ranch+Rd+S+Spicewood+TX" target="_blank">
-                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-mug-hot activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">5:00 PM</div>
-              <div class="activity-description">Leisure time: espresso/tea, lawn games, hammocks</div>
+              <div class="activity-time">11:00 AM</div>
+              <div class="activity-description">Easy hiking at Lookout Mountain:
+                <br><strong>• Nature Trail</strong> (0.8 miles, easy) - Gentle walk with interpretive signs
+                <br><strong>• Windy Saddle Trail</strong> (1.2 miles, moderate) - Better views of Denver skyline
+                <br><strong>• Picnic areas</strong> - Perfect for snacks with mountain views</div>
             </div>
           </li>
           <li class="activity-item">
             <i class="fa-solid fa-utensils activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">6:00 PM</div>
-              <div class="activity-description">Dinner at <a href="https://www.opiesbarbecue.com/" target="_blank">Opie's Barbecue</a></div>
+              <div class="activity-time">12:30 PM</div>
+              <div class="activity-description">Lunch in Golden - Historic downtown with brewery options and mountain charm</div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/search/restaurants+golden+colorado" target="_blank" class="link-button">
+                  <i class="fa-solid fa-utensils"></i> Golden Restaurants
+                </a>
+              </div>
             </div>
           </li>
           <li class="activity-item">
-            <i class="fa-solid fa-star activity-icon"></i>
+            <i class="fa-solid fa-mountain activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">2:30 PM</div>
+              <div class="activity-description">Drive to Roxborough State Park (25 minutes from Golden)</div>
+              <div class="route-info">
+                <i class="fa-solid fa-route"></i>
+                <span>Golden to Roxborough: US-6 W → C-470 W → N Rampart Range Rd → Roxborough Park Dr</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/Golden,+CO/Roxborough+State+Park,+Littleton,+CO" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> Route to Roxborough
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-camera activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">3:00 PM</div>
+              <div class="activity-description"><strong>🏔️ Roxborough State Park - Colorado's Hidden Gem! 🏔️</strong>
+                <br>Dramatic red-rock formations similar to Garden of the Gods - National Natural Landmark with 4,000 acres of stunning scenery and wildlife viewing opportunities.</div>
+              <div class="route-info">
+                <i class="fa-solid fa-star"></i>
+                <span>$10 entrance fee, no dogs allowed. Limited parking fills up fast on weekends!</span>
+              </div>
+              <div class="button-group">
+                <a href="https://cpw.state.co.us/state-parks/roxborough-state-park" target="_blank" class="link-button mountain-button">
+                  <i class="fa-solid fa-info"></i> Park Information
+                </a>
+                <a href="https://www.google.com/maps/place/Roxborough+State+Park" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map-marker-alt"></i> Park Location
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-hiking activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">3:30 PM</div>
+              <div class="activity-description">Afternoon hiking at Roxborough:
+                <br><strong>• Fountain Valley Loop</strong> (2.3 miles, moderate) - Winds through red rock formations
+                <br><strong>• Willow Creek Trail</strong> (1.3 miles, easy) - Known for wildflowers and bird watching
+                <br><strong>• South Rim Trail</strong> (0.9 miles, easy) - Great views with less crowds
+                <br><strong>• Wildlife viewing</strong> - Mule deer, fox, golden eagles, and occasional bears</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-camera-retro activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">4:30 PM</div>
+              <div class="activity-description">Photography and exploration time - Perfect lighting for red rock photos as the afternoon sun hits the formations. Visit the historic Persse Place ruins from 1903.</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-utensils activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">5:30 PM</div>
+              <div class="activity-description">Return to Littleton area for early dinner before concert</div>
+              <div class="route-info">
+                <i class="fa-solid fa-clock"></i>
+                <span>Roxborough to Red Rocks: 15 minutes via Roxborough Park Dr → Chatfield Ave → Morrison Rd</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/search/restaurants+littleton+colorado" target="_blank" class="link-button">
+                  <i class="fa-solid fa-utensils"></i> Littleton Restaurants
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-route activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">6:30 PM</div>
+              <div class="activity-description">Drive to Red Rocks for evening concert (15 minutes from Littleton)</div>
+              <div class="route-info">
+                <i class="fa-solid fa-clock"></i>
+                <span>Perfect timing! Much shorter drive from Roxborough/Littleton area. Gates typically open 2 hours before show.</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.google.com/maps/dir/Littleton,+CO/Red+Rocks+Park+and+Amphitheatre,+Morrison,+CO" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> Littleton to Red Rocks
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-music activity-icon"></i>
             <div class="activity-content">
               <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Stargazing at the communal fire pit</div>
+              <div class="activity-description"><strong>🎸 CONCERT: Big Head Todd and the Monsters at Red Rocks Amphitheatre! 🎸</strong>
+                <br>Experience live music at one of the world's most beautiful venues with stunning red rock formations as the backdrop. This iconic Colorado band is perfect for your Colorado adventure!</div>
+              <div class="route-info">
+                <i class="fa-solid fa-star"></i>
+                <span>Red Rocks concerts are legendary experiences! Bring layers - mountain evenings get cool even in summer.</span>
+              </div>
+              <div class="button-group">
+                <a href="https://www.redrocksonline.com/events/big-head-todd-and-the-monsters-817863/" target="_blank" class="link-button mountain-button">
+                  <i class="fa-solid fa-ticket"></i> Concert Details
+                </a>
+                <a href="https://www.redrocksonline.com/" target="_blank" class="link-button">
+                  <i class="fa-solid fa-info"></i> Red Rocks Info
+                </a>
+                <a href="https://www.bigheadtodd.com/" target="_blank" class="link-button">
+                  <i class="fa-solid fa-external-link-alt"></i> Band Website
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-bed activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">Late Evening</div>
+              <div class="activity-description">Return to La Quinta Littleton after the concert (15-20 minutes from Red Rocks)
+                <br><strong>Pro tip:</strong> Traffic exits slowly after concerts - be patient and enjoy the mountain night air!</div>
             </div>
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- Monday -->
-    <div class="day-card" data-day="2">
+    <!-- Sunday -->
+    <div class="day-card" data-day="3">
       <div class="day-header" onclick="toggleDay(this)">
         <div class="day-title">
-          <i class="fa-solid fa-cloud-sun day-icon"></i>
-          <span>Monday, May 26 – Cypress Valley Activities</span>
+          <i class="fa-solid fa-plane day-icon"></i>
+          <span>Sunday, June 8 – Departure Day: Littleton → Fort Worth</span>
         </div>
         <i class="fa-solid fa-chevron-down expand-icon"></i>
       </div>
       <div class="weather-banner">
         <div class="weather-info">
           <i class="fa-solid fa-cloud-sun" style="font-size: 1.8rem;"></i>
-          <span class="weather-location">Spicewood, TX 78669</span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 93°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 72°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-wind"></i>
-            <span>Breezy</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>30% rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/78669:4:US" target="_blank" class="link-button weather-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-dumbbell activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Yoga on the creek‑side platform</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">10:00 AM</div>
-              <div class="activity-description">Breakfast in‑cabin or Spicewood Station Café</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-hiking activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">11:30 AM</div>
-              <div class="activity-description">Muleshoe Bend Recreation Area (20 min drive)</div>
-              <div class="button-group">
-                <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/Muleshoe+Bend+Recreation+Area" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Lunch at <a href="https://www.lacabanaspicewood.com/" target="_blank">La Cabana Grill</a></div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-swimmer activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:00 PM</div>
-              <div class="activity-description">Swim & relax at the infinity pool</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-music activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:30 PM</div>
-              <div class="activity-description">Dinner at <a href="https://www.angelsicehouse.com/" target="_blank">Angel's Icehouse</a></div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-star activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Deck time with craft drinks</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Tuesday -->
-    <div class="day-card" data-day="3">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-tree-city day-icon"></i>
-          <span>Tuesday, May 27 – Cypress Valley → Camp Fimfo → Skybox Cabins</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud" style="font-size: 1.8rem;"></i>
-          <span class="weather-location">New Braunfels, TX 78132</span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 90°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 69°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-cloud"></i>
-            <span>Overcast</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>50% rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/78132:4:US" target="_blank" class="link-button weather-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Breakfast tacos & coffee</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-sign-out activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">11:00 AM</div>
-              <div class="activity-description">Check‑out & depart Cypress Valley</div>
-              <div class="route-info">
-                <i class="fa-solid fa-route"></i>
-                <span>To Camp Fimfo: ~78 mi, 1h 23m via TX‑71 W → US‑281 S → FM 360 E</span>
-              </div>
-              <div class="button-group">
-                <a href="https://www.google.com/maps/dir/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX/520+Whitewater+Way,+New+Braunfels,+TX" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-location-dot activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:00 PM</div>
-              <div class="activity-description">Arrive at <a href="https://www.campfimfo.com/" target="_blank">Camp Fimfo</a></div>
-              <div class="button-group">
-                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Arrive+Camp+Fimfo&dates=20250527T140000/20250527T143000&location=520+Whitewater+Way+New+Braunfels+TX" target="_blank">
-                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-roller-coaster activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:30 PM</div>
-              <div class="activity-description">On‑site fun: roller coaster, water playground, mini‑golf</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-road activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">4:00 PM</div>
-              <div class="activity-description">Depart for Skybox Cabins</div>
-              <div class="route-info">
-                <i class="fa-solid fa-route"></i>
-                <span>To Skybox: ~203 mi, 3h 39m via FM 360 W → US‑281 N → TX‑220 E → US‑67 W</span>
-              </div>
-              <div class="button-group">
-                <a href="https://www.google.com/maps/dir/520+Whitewater+Way,+New+Braunfels,+TX/443+E+Chapman+St,+Glen+Rose,+TX" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-key activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:45 PM</div>
-              <div class="activity-description">Check‑in at <a href="https://www.skyboxcabins.com/" target="_blank">Skybox Cabins</a></div>
-              <div class="button-group">
-                <a class="link-button calendar-button" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Check-in+at+Skybox+Cabins&dates=20250527T184500/20250527T190000&location=443+E+Chapman+St+Glen+Rose+TX" target="_blank">
-                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-fire activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Cabin campfire & s'mores</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Wednesday -->
-    <div class="day-card" data-day="4">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-paw day-icon"></i>
-          <span>Wednesday, May 28 – Glen Rose Adventures</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud-bolt" style="font-size: 1.8rem;"></i>
-          <span class="weather-location">Glen Rose, TX 76043</span>
+          <span class="weather-location">Travel Day Weather</span>
         </div>
         <div class="weather-details">
           <div class="weather-item">
@@ -1998,152 +1031,82 @@
           </div>
           <div class="weather-item">
             <i class="fa-solid fa-moon"></i>
-            <span>Low: 66°F</span>
+            <span>Low: 54°F</span>
           </div>
           <div class="weather-item">
-            <i class="fa-solid fa-cloud-bolt"></i>
-            <span>Morning storms</span>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>Partly cloudy</span>
           </div>
           <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>40% rain</span>
+            <i class="fa-solid fa-road"></i>
+            <span>Good driving</span>
           </div>
         </div>
-        <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank" class="link-button weather-button">
+        <a href="https://weather.com/weather/today/l/76179:4:US" target="_blank" class="link-button weather-button">
           <i class="fa-solid fa-external-link-alt"></i> Full Forecast
         </a>
       </div>
       <div class="day-content">
         <ul class="activity-list">
           <li class="activity-item">
-            <i class="fa-solid fa-bread-slice activity-icon"></i>
+            <i class="fa-solid fa-coffee activity-icon"></i>
             <div class="activity-content">
               <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Cabin breakfast or Rob's Bakery pastries</div>
+              <div class="activity-description">Final hotel breakfast and checkout preparation</div>
             </div>
           </li>
           <li class="activity-item">
-            <i class="fa-solid fa-footprints activity-icon"></i>
+            <i class="fa-solid fa-camera activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">9:30 AM</div>
-              <div class="activity-description">Dinosaur Valley State Park</div>
+              <div class="activity-time">9:00 AM (Optional)</div>
+              <div class="activity-description">Quick morning visit to Chatfield State Park (15 minutes from hotel)
+                <br>Beautiful lake views with mountain backdrop - perfect for final Colorado photos</div>
               <div class="button-group">
-                <a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/Dinosaur+Valley+State+Park" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
+                <a href="https://www.google.com/maps/dir/5669+S+Alkire+St,+Littleton,+CO+80127/Chatfield+State+Park,+Littleton,+CO" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> Chatfield Park
                 </a>
               </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">1:00 PM</div>
-              <div class="activity-description">Lunch at The Green Pickle</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-hippo activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">2:30 PM</div>
-              <div class="activity-description">Fossil Rim Wildlife Center safari</div>
-              <div class="button-group">
-                <a href="https://www.google.com/maps/dir/Dinosaur+Valley+State+Park/Fossil+Rim+Wildlife+Center" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-utensils activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">6:30 PM</div>
-              <div class="activity-description">Dinner at Riverhouse Grill</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-star activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 PM</div>
-              <div class="activity-description">Moonlit creek‑side stroll</div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Thursday -->
-    <div class="day-card" data-day="5">
-      <div class="day-header" onclick="toggleDay(this)">
-        <div class="day-title">
-          <i class="fa-solid fa-arrow-up-right-from-square day-icon"></i>
-          <span>Thursday, May 29 – Glen Rose → Fort Worth</span>
-        </div>
-        <i class="fa-solid fa-chevron-down expand-icon"></i>
-      </div>
-      <div class="weather-banner">
-        <div class="weather-info">
-          <i class="fa-solid fa-cloud-rain" style="font-size: 1.8rem;"></i>
-          <span class="weather-location">Glen Rose, TX 76043</span>
-        </div>
-        <div class="weather-details">
-          <div class="weather-item">
-            <i class="fa-solid fa-thermometer-half"></i>
-            <span>High: 85°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-moon"></i>
-            <span>Low: 65°F</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-cloud-bolt"></i>
-            <span>Scattered storms</span>
-          </div>
-          <div class="weather-item">
-            <i class="fa-solid fa-droplet"></i>
-            <span>60% rain</span>
-          </div>
-        </div>
-        <a href="https://weather.com/weather/today/l/76043:4:US" target="_blank" class="link-button weather-button">
-          <i class="fa-solid fa-external-link-alt"></i> Full Forecast
-        </a>
-      </div>
-      <div class="day-content">
-        <ul class="activity-list">
-          <li class="activity-item">
-            <i class="fa-solid fa-walking activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">8:00 AM</div>
-              <div class="activity-description">Morning walk among oak‑cedar pastures</div>
-            </div>
-          </li>
-          <li class="activity-item">
-            <i class="fa-solid fa-box-open activity-icon"></i>
-            <div class="activity-content">
-              <div class="activity-time">9:00 AM</div>
-              <div class="activity-description">Final breakfast & pack</div>
             </div>
           </li>
           <li class="activity-item">
             <i class="fa-solid fa-sign-out activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">11:00 AM</div>
-              <div class="activity-description">Check‑out & depart Glen Rose</div>
+              <div class="activity-time">10:00 AM</div>
+              <div class="activity-description">Hotel checkout and departure preparation</div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-route activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">10:30 AM</div>
+              <div class="activity-description">Begin drive back to Fort Worth</div>
               <div class="route-info">
                 <i class="fa-solid fa-route"></i>
-                <span>Route home (56 mi, 54m): US‑67 E → I‑20 W → I‑30 W → Riverside Blvd → local streets</span>
+                <span>Return route (~650 miles, 9h 45m): C-470 E → I-25 S → I-35 S → I-35W S to Fort Worth</span>
               </div>
               <div class="button-group">
-                <a href="https://www.google.com/maps/dir/443+E+Chapman+St,+Glen+Rose,+TX/3065+Hopewell+Ln,+Fort+Worth,+TX" target="_blank" class="link-button">
-                  <i class="fa-solid fa-map"></i> View Route
+                <a href="https://www.google.com/maps/dir/5669+S+Alkire+St,+Littleton,+CO+80127/5509+Tuxbury+Pond+Dr,+Fort+Worth,+TX" target="_blank" class="link-button">
+                  <i class="fa-solid fa-map"></i> Return Route
                 </a>
+              </div>
+            </div>
+          </li>
+          <li class="activity-item">
+            <i class="fa-solid fa-gas-pump activity-icon"></i>
+            <div class="activity-content">
+              <div class="activity-time">Suggested Stops</div>
+              <div class="activity-description">
+                <strong>Lunch Stop:</strong> Colorado Springs, CO (1 hour south)<br>
+                <strong>Afternoon Break:</strong> Amarillo, TX (halfway point)<br>
+                <strong>Final Stretch:</strong> Arrive Fort Worth by evening
               </div>
             </div>
           </li>
           <li class="activity-item">
             <i class="fa-solid fa-home activity-icon"></i>
             <div class="activity-content">
-              <div class="activity-time">12:00 PM</div>
-              <div class="activity-description">Arrive back at Fort Worth</div>
+              <div class="activity-time">8:00-9:00 PM</div>
+              <div class="activity-description">Arrive home at 5509 Tuxbury Pond Dr, Fort Worth, TX</div>
             </div>
           </li>
         </ul>
@@ -2153,859 +1116,48 @@
     <!-- Tips Section -->
     <div class="tips-section">
       <div class="tips-title">
-        <i class="fa-solid fa-lightbulb"></i>
-        <span>Pack & Pro Tips</span>
+        <i class="fa-solid fa-mountain"></i>
+        <span>Colorado Adventure Tips</span>
       </div>
       <div class="tips-grid">
         <div class="tip-item">
-          <i class="fa-solid fa-tshirt tip-icon"></i>
-          <div class="tip-text">Layered clothing (day: mid‑80s°F; night: low‑60s°F)</div>
+          <i class="fa-solid fa-thermometer-half tip-icon"></i>
+          <div class="tip-text">Pack layers! Colorado weather changes quickly. Bring jackets for cool mornings and evenings.</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-droplet tip-icon"></i>
+          <div class="tip-text">Stay hydrated at altitude (5,280+ ft). Drink plenty of water and limit alcohol first day.</div>
         </div>
         <div class="tip-item">
           <i class="fa-solid fa-hiking tip-icon"></i>
-          <div class="tip-text">Hiking shoes + water‑friendly footwear</div>
+          <div class="tip-text">Comfortable hiking shoes for Red Rocks trails. Trails can be rocky and steep.</div>
         </div>
         <div class="tip-item">
-          <i class="fa-solid fa-binoculars tip-icon"></i>
-          <div class="tip-text">Binoculars, reusable water bottle, phone charger</div>
+          <i class="fa-solid fa-sun tip-icon"></i>
+          <div class="tip-text">Strong UV rays at altitude - bring sunscreen (SPF 30+), sunglasses, and hat.</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-gas-pump tip-icon"></i>
+          <div class="tip-text">Keep gas tank above half full. Mountain driving uses more fuel than Texas plains.</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-music tip-icon"></i>
+          <div class="tip-text">For Red Rocks concert: Bring layers (gets cool at night), comfortable shoes for steps, and arrive early for parking!</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-camera tip-icon"></i>
+          <div class="tip-text">Bring camera/phone chargers! Colorado's scenery is incredibly photogenic.</div>
+        </div>
+        <div class="tip-item">
+          <i class="fa-solid fa-car tip-icon"></i>
+          <div class="tip-text">Check tire pressure before mountain driving. Lower air pressure at altitude affects performance.</div>
         </div>
         <div class="tip-item">
           <i class="fa-solid fa-clock tip-icon"></i>
-          <div class="tip-text">Allow 15–30 min buffer each leg</div>
-        </div>
-        <div class="tip-item">
-          <i class="fa-solid fa-route tip-icon"></i>
-          <div class="tip-text">Check live traffic on Google Maps/Waze before departing</div>
-        </div>
-      </div>
-
-      <!-- Reservation Details Dropdown -->
-      <div class="reservation-dropdown">
-        <button class="reservation-toggle" onclick="toggleReservationDetails()">
-          <div class="reservation-toggle-content">
-            <i class="fa-solid fa-tree"></i>
-            <span>Cypress Valley Reservation Details</span>
-          </div>
-          <i class="fa-solid fa-chevron-down reservation-arrow"></i>
-        </button>
-        
-        <div class="reservation-content" id="reservationContent">
-          <div class="reservation-card-full">
-            <div class="reservation-header-full">
-              <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Confirmation</h4>
-              <div class="reservation-badge-full">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>CONFIRMED</span>
-              </div>
-            </div>
-            <p class="reservation-id">Willow Treehouse • Reservation #344136 • Leah Adamowicz</p>
-            
-            <div class="reservation-sections">
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
-                <ul>
-                  <li><strong>Check-in:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
-                  <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
-                  <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
-                  <li><strong>Reminder Email:</strong> Sent 2 days prior to arrival with step-by-step instructions</li>
-                  <li><strong>Estimated Arrival:</strong> 4:00 PM</li>
-                </ul>
-              </div>
-              
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-home"></i> Willow Treehouse Amenities</h5>
-                <ul>
-                  <li><strong>Parking:</strong> Car access near treehouse (pack light for short walk)</li>
-                  <li><strong>Facilities:</strong> Shared shower/bathroom facilities (2-3 minute stroll)</li>
-                  <li><strong>Linens:</strong> All bed linens and towels provided</li>
-                  <li><strong>Kitchen Items:</strong> Mini-fridge with freezer, coffee, water, selection of teas</li>
-                  <li><strong>Equipment:</strong> Electric kettle, cups, mugs</li>
-                  <li><strong>Additional:</strong> Microwave in Welcome Center, propane grills with gas in recreation area</li>
-                </ul>
-              </div>
-              
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Information</h5>
-                <ul>
-                  <li><strong>Location:</strong> 1223 Paleface Ranch Rd S, Spicewood, TX 78669</li>
-                  <li><strong>Transportation:</strong> Car rental recommended - no rideshare or public transport available</li>
-                  <li><strong>Vehicle Access:</strong> Low clearance vehicles and motorcycles may have difficulty</li>
-                  <li><strong>Required Waivers:</strong> All guests 18+ must complete digital Property Rules & Liability Release Form</li>
-                  <li><strong>Minor Waivers:</strong> All minors must be signed for by parent/guardian</li>
-                  <li><strong>Deadline:</strong> Waivers must be completed before check-in for all party members</li>
-                </ul>
-              </div>
-
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-ban"></i> Cancellation Policy</h5>
-                <ul>
-                  <li><strong>Refunds:</strong> All reservations are non-refundable</li>
-                  <li><strong>Rescheduling:</strong> Free rescheduling with 30+ days notice</li>
-                  <li><strong>Within 30 Days:</strong> Rescheduling only if your dates rebook</li>
-                </ul>
-              </div>
-
-              <div class="cost-breakdown-full">
-                <h5><i class="fa-solid fa-receipt"></i> Payment Summary</h5>
-                <div class="cost-details">
-                  <div class="cost-row">
-                    <span>Willow Treehouse (2 nights @ $275/night)</span>
-                    <span>$550.00</span>
-                  </div>
-                  <div class="cost-row discount-row">
-                    <span>Weekday Special Discount</span>
-                    <span>-$137.50</span>
-                  </div>
-                  <div class="cost-row">
-                    <span>Subtotal</span>
-                    <span>$412.50</span>
-                  </div>
-                  <div class="cost-row">
-                    <span>Tax</span>
-                    <span>$24.75</span>
-                  </div>
-                  <div class="cost-row total-row">
-                    <span><strong>Total</strong></span>
-                    <span><strong>$437.25</strong></span>
-                  </div>
-                  <div class="payment-info">
-                    <div class="payment-row">
-                      <span><strong>Paid (4/6/2025):</strong> VISA ending in 8394</span>
-                      <span><strong>$437.25</strong></span>
-                    </div>
-                    <div class="payment-row balance">
-                      <span><strong>Balance Due:</strong></span>
-                      <span><strong>$0.00</strong></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="reservation-section contact-section">
-                <h5><i class="fa-solid fa-user"></i> Contact Information</h5>
-                <p><strong>Guest:</strong> Leah Adamowicz<br>
-                <strong>Address:</strong> 5509 Tuxbury Pond Dr, Fort Worth, Texas 76179<br>
-                <strong>Email:</strong> lcadamowicz@yahoo.com<br>
-                <strong>Phone:</strong> 817-773-8113</p>
-              </div>
-            </div>
-            
-            <div class="reservation-actions">
-              <a href="https://www.cypressvalley.com/" target="_blank" class="reservation-action-btn">
-                <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
-              </a>
-              <a href="tel:+15124264635" class="reservation-action-btn">
-                <i class="fa-solid fa-phone"></i> Call Property
-              </a>
-              <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="reservation-action-btn">
-                <i class="fa-solid fa-map-marker-alt"></i> Property Location
-              </a>
-              <a href="mailto:lcadamowicz@yahoo.com" class="reservation-action-btn">
-                <i class="fa-solid fa-envelope"></i> Email Confirmation
-              </a>
-            </div>
-
-            <div class="reservation-footer">
-              <p><em>"Our staff will work hard to make your time here something you will always remember. We look forward to providing you with an exciting adventure!"</em></p>
-              <p><strong>- Amy Beilharz, Co-owner</strong></p>
-            </div>
-          </div>
+          <div class="tip-text">Colorado is 1 hour behind Texas (Mountain Time). Adjust plans accordingly.</div>
         </div>
       </div>
     </div>
-
-    <!-- Restaurant Guide Section -->
-    <div class="restaurant-guide">
-      <div class="restaurant-title">
-        <i class="fa-solid fa-utensils"></i>
-        <span>Local Restaurant Guide</span>
-      </div>
-      <p class="restaurant-subtitle">Discover more dining options in each location</p>
-      
-      <div class="location-selector">
-        <button class="location-btn active" data-location="spicewood" onclick="showRestaurants('spicewood')">
-          <i class="fa-solid fa-tree"></i> Spicewood Area
-        </button>
-        <button class="location-btn" data-location="newbraunfels" onclick="showRestaurants('newbraunfels')">
-          <i class="fa-solid fa-water"></i> New Braunfels
-        </button>
-        <button class="location-btn" data-location="glenrose" onclick="showRestaurants('glenrose')">
-          <i class="fa-solid fa-mountain"></i> Glen Rose
-        </button>
-      </div>
-
-      <!-- Spicewood Restaurants -->
-      <div class="restaurant-grid active" id="spicewood-restaurants">
-        <div class="restaurant-card reservation-card">
-          <div class="restaurant-header">
-            <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Details</h4>
-            <div class="rating reservation-badge">
-              <i class="fa-solid fa-calendar-check"></i>
-              <span>CONFIRMED</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Willow Treehouse • Reservation #344136</p>
-          <div class="reservation-details">
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
-              <ul>
-                <li><strong>Date:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
-                <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
-                <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
-                <li><strong>Reminder:</strong> Email sent 2 days prior to arrival</li>
-              </ul>
-            </div>
-            
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-home"></i> Amenities Included</h5>
-              <ul>
-                <li>Car access near treehouse (pack light for short walk)</li>
-                <li>Shared shower/bathroom facilities (2-3 min stroll)</li>
-                <li>All linens provided</li>
-                <li>Mini-fridge with freezer, coffee, water, teas</li>
-                <li>Electric kettle, cups, mugs</li>
-                <li>Microwave in Welcome Center</li>
-                <li>Propane grills with gas in recreation area</li>
-              </ul>
-            </div>
-            
-            <div class="reservation-info">
-              <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Notes</h5>
-              <ul>
-                <li><strong>Transportation:</strong> Car rental recommended (no rideshare/public transport)</li>
-                <li><strong>Vehicle:</strong> Low clearance vehicles & motorcycles may have difficulty</li>
-                <li><strong>Waivers:</strong> All guests 18+ must complete digital liability forms</li>
-                <li><strong>Cancellation:</strong> Non-refundable, reschedule free with 30+ days notice</li>
-              </ul>
-            </div>
-
-            <div class="cost-breakdown">
-              <h5><i class="fa-solid fa-receipt"></i> Cost Breakdown</h5>
-              <div class="cost-item">
-                <span>Willow Treehouse (2 nights)</span>
-                <span>$550.00</span>
-              </div>
-              <div class="cost-item discount">
-                <span>Weekday Special Discount</span>
-                <span>-$137.50</span>
-              </div>
-              <div class="cost-item">
-                <span>Subtotal</span>
-                <span>$412.50</span>
-              </div>
-              <div class="cost-item">
-                <span>Tax</span>
-                <span>$24.75</span>
-              </div>
-              <div class="cost-item total">
-                <span><strong>Total Paid</strong></span>
-                <span><strong>$437.25</strong></span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="restaurant-links">
-            <a href="https://www.cypressvalley.com/" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
-            </a>
-            <a href="tel:+15124264635" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call Property
-            </a>
-            <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Property Location
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>The Salt Traders Coastal Cooking</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Seafood • Coastal</p>
-          <p class="restaurant-description">Fresh Gulf seafood with a Texas twist. Famous for their fish tacos and shrimp & grits.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Salt+Traders+Coastal+Cooking+Spicewood+TX" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15126938700" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Poodies Hilltop Bar & Grill</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.3</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • BBQ</p>
-          <p class="restaurant-description">Iconic roadhouse with live music, cold beer, and authentic Texas BBQ. Great lake views!</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Poodies+Hilltop+Bar+Grill+Spicewood+TX" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15126938600" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Hula Hut Mexican Food</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.2</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Mexican • Tex-Mex</p>
-          <p class="restaurant-description">Lakefront dining with Polynesian-Mexican fusion. Famous margaritas and sunset views.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Hula+Hut+Lake+Travis+TX" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15122663760" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>County Line BBQ</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.4</span>
-            </div>
-          </div>
-          <p class="cuisine-type">BBQ • American</p>
-          <p class="restaurant-description">Award-winning BBQ with Hill Country atmosphere. Try their famous beef ribs and cobbler.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/County+Line+BBQ+Lake+Travis" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15122634544" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Lago Vista Cafe</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.1</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Cafe • American</p>
-          <p class="restaurant-description">Cozy breakfast and lunch spot with homemade pastries and strong coffee. Local favorite!</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Lago+Vista+Cafe+TX" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15122673451" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Ski Shores Cafe</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.0</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • Burgers</p>
-          <p class="restaurant-description">Laid-back lakeside spot famous for their Hippie Hollow burger and boat-up dining.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Ski+Shores+Cafe+Austin+TX" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+15122616300" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- New Braunfels Restaurants -->
-      <div class="restaurant-grid" id="newbraunfels-restaurants">
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Krause's Biergarten</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.6</span>
-            </div>
-          </div>
-          <p class="cuisine-type">German • Beer Garden</p>
-          <p class="restaurant-description">Authentic German cuisine with 40+ beers on tap. Historic biergarten with live music and river views.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Krause's+Biergarten+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306255641" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>The Gristmill River Restaurant</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.4</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • Steakhouse</p>
-          <p class="restaurant-description">Historic cotton gin turned restaurant. Riverside dining with steaks, seafood, and Texas favorites.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Gristmill+River+Restaurant+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306258211" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Schnitzel & Strudel</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5</span>
-            </div>
-          </div>
-          <p class="cuisine-type">German • European</p>
-          <p class="restaurant-description">Family-owned German restaurant with traditional schnitzel, sausages, and homemade strudel.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Schnitzel+Strudel+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306272070" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Myron Mixon's Pitmaster BBQ</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.3</span>
-            </div>
-          </div>
-          <p class="cuisine-type">BBQ • Southern</p>
-          <p class="restaurant-description">Championship BBQ from TV's Pitmaster. Slow-smoked meats and authentic Southern sides.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Myron+Mixon+BBQ+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306060045" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Adobe Verde</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.2</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Mexican • Tex-Mex</p>
-          <p class="restaurant-description">Upscale Mexican cuisine with creative cocktails. Beautiful patio and extensive tequila selection.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Adobe+Verde+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306064070" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Buttermilk Cafe</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.1</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Cafe • Breakfast</p>
-          <p class="restaurant-description">Farm-to-table breakfast and lunch with fresh ingredients. Famous for pancakes and egg dishes.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Buttermilk+Cafe+New+Braunfels" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18306068222" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Glen Rose Restaurants -->
-      <div class="restaurant-grid" id="glenrose-restaurants">
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Oakdale Park</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.5</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • Steakhouse</p>
-          <p class="restaurant-description">Historic park setting with excellent steaks and seafood. Beautiful outdoor dining under the trees.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Oakdale+Park+Restaurant+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172798989" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Cafe Brazos</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.3</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • Cafe</p>
-          <p class="restaurant-description">Cozy downtown cafe with homemade soups, sandwiches, and desserts. Popular for lunch and coffee.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Cafe+Brazos+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172792424" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Mesquite Pit</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.4</span>
-            </div>
-          </div>
-          <p class="cuisine-type">BBQ • American</p>
-          <p class="restaurant-description">Local BBQ joint with mesquite-smoked meats. Try their brisket and homemade sides.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Mesquite+Pit+BBQ+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172794500" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Hammond's BBQ</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.2</span>
-            </div>
-          </div>
-          <p class="cuisine-type">BBQ • Southern</p>
-          <p class="restaurant-description">Family-owned BBQ spot serving Glen Rose for decades. Known for tender ribs and friendly service.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Hammond's+BBQ+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172794663" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Big Rocks Park Cafe</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.1</span>
-            </div>
-          </div>
-          <p class="cuisine-type">American • Diner</p>
-          <p class="restaurant-description">Classic diner fare with generous portions. Great breakfast and comfort food in a casual setting.</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Big+Rocks+Park+Cafe+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172795200" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-
-        <div class="restaurant-card">
-          <div class="restaurant-header">
-            <h4>Pie Peddlers</h4>
-            <div class="rating">
-              <i class="fa-solid fa-star"></i>
-              <span>4.6</span>
-            </div>
-          </div>
-          <p class="cuisine-type">Bakery • Desserts</p>
-          <p class="restaurant-description">Artisan pie shop with dozens of flavors. Perfect for dessert or a sweet breakfast treat!</p>
-          <div class="restaurant-links">
-            <a href="https://www.google.com/maps/search/Pie+Peddlers+Glen+Rose" target="_blank" class="restaurant-link">
-              <i class="fa-solid fa-map-marker-alt"></i> Directions
-            </a>
-            <a href="tel:+18172974777" class="restaurant-link">
-              <i class="fa-solid fa-phone"></i> Call
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reservation Details Dropdown -->
-      <div class="reservation-dropdown">
-        <button class="reservation-toggle" onclick="toggleReservationDetails()">
-          <div class="reservation-toggle-content">
-            <i class="fa-solid fa-tree"></i>
-            <span>Cypress Valley Reservation Details</span>
-          </div>
-          <i class="fa-solid fa-chevron-down reservation-arrow"></i>
-        </button>
-        
-        <div class="reservation-content" id="reservationContent">
-          <div class="reservation-card-full">
-            <div class="reservation-header-full">
-              <h4><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Confirmation</h4>
-              <div class="reservation-badge-full">
-                <i class="fa-solid fa-calendar-check"></i>
-                <span>CONFIRMED</span>
-              </div>
-            </div>
-            <p class="reservation-id">Willow Treehouse • Reservation #344136 • Leah Adamowicz</p>
-            
-            <div class="reservation-sections">
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-info-circle"></i> Check-in Information</h5>
-                <ul>
-                  <li><strong>Check-in:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
-                  <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
-                  <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
-                  <li><strong>Reminder Email:</strong> Sent 2 days prior to arrival with step-by-step instructions</li>
-                  <li><strong>Estimated Arrival:</strong> 4:00 PM</li>
-                </ul>
-              </div>
-              
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-home"></i> Willow Treehouse Amenities</h5>
-                <ul>
-                  <li><strong>Parking:</strong> Car access near treehouse (pack light for short walk)</li>
-                  <li><strong>Facilities:</strong> Shared shower/bathroom facilities (2-3 minute stroll)</li>
-                  <li><strong>Linens:</strong> All bed linens and towels provided</li>
-                  <li><strong>Kitchen Items:</strong> Mini-fridge with freezer, coffee, water, selection of teas</li>
-                  <li><strong>Equipment:</strong> Electric kettle, cups, mugs</li>
-                  <li><strong>Additional:</strong> Microwave in Welcome Center, propane grills with gas in recreation area</li>
-                </ul>
-              </div>
-              
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-exclamation-triangle"></i> Important Information</h5>
-                <ul>
-                  <li><strong>Location:</strong> 1223 Paleface Ranch Rd S, Spicewood, TX 78669</li>
-                  <li><strong>Transportation:</strong> Car rental recommended - no rideshare or public transport available</li>
-                  <li><strong>Vehicle Access:</strong> Low clearance vehicles and motorcycles may have difficulty</li>
-                  <li><strong>Required Waivers:</strong> All guests 18+ must complete digital Property Rules & Liability Release Form</li>
-                  <li><strong>Minor Waivers:</strong> All minors must be signed for by parent/guardian</li>
-                  <li><strong>Deadline:</strong> Waivers must be completed before check-in for all party members</li>
-                </ul>
-              </div>
-
-              <div class="reservation-section">
-                <h5><i class="fa-solid fa-ban"></i> Cancellation Policy</h5>
-                <ul>
-                  <li><strong>Refunds:</strong> All reservations are non-refundable</li>
-                  <li><strong>Rescheduling:</strong> Free rescheduling with 30+ days notice</li>
-                  <li><strong>Within 30 Days:</strong> Rescheduling only if your dates rebook</li>
-                </ul>
-              </div>
-
-              <div class="cost-breakdown-full">
-                <h5><i class="fa-solid fa-receipt"></i> Payment Summary</h5>
-                <div class="cost-details">
-                  <div class="cost-row">
-                    <span>Willow Treehouse (2 nights @ $275/night)</span>
-                    <span>$550.00</span>
-                  </div>
-                  <div class="cost-row discount-row">
-                    <span>Weekday Special Discount</span>
-                    <span>-$137.50</span>
-                  </div>
-                  <div class="cost-row">
-                    <span>Subtotal</span>
-                    <span>$412.50</span>
-                  </div>
-                  <div class="cost-row">
-                    <span>Tax</span>
-                    <span>$24.75</span>
-                  </div>
-                  <div class="cost-row total-row">
-                    <span><strong>Total</strong></span>
-                    <span><strong>$437.25</strong></span>
-                  </div>
-                  <div class="payment-info">
-                    <div class="payment-row">
-                      <span><strong>Paid (4/6/2025):</strong> VISA ending in 8394</span>
-                      <span><strong>$437.25</strong></span>
-                    </div>
-                    <div class="payment-row balance">
-                      <span><strong>Balance Due:</strong></span>
-                      <span><strong>$0.00</strong></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="reservation-section contact-section">
-                <h5><i class="fa-solid fa-user"></i> Contact Information</h5>
-                <p><strong>Guest:</strong> Leah Adamowicz<br>
-                <strong>Address:</strong> 5509 Tuxbury Pond Dr, Fort Worth, Texas 76179<br>
-                <strong>Email:</strong> lcadamowicz@yahoo.com<br>
-                <strong>Phone:</strong> 817-773-8113</p>
-              </div>
-            </div>
-            
-            <div class="reservation-actions">
-              <a href="https://www.cypressvalley.com/" target="_blank" class="reservation-action-btn">
-                <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
-              </a>
-              <a href="tel:+15124264635" class="reservation-action-btn">
-                <i class="fa-solid fa-phone"></i> Call Property
-              </a>
-              <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="reservation-action-btn">
-                <i class="fa-solid fa-map-marker-alt"></i> Property Location
-              </a>
-              <a href="mailto:lcadamowicz@yahoo.com" class="reservation-action-btn">
-                <i class="fa-solid fa-envelope"></i> Email Confirmation
-              </a>
-            </div>
-
-            <div class="reservation-footer">
-              <p><em>"Our staff will work hard to make your time here something you will always remember. We look forward to providing you with an exciting adventure!"</em></p>
-              <p><strong>- Amy Beilharz, Co-owner</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cypress Valley Reservation Section -->
-    <div class="cypress-reservation-section">
-      <div class="cypress-header">
-        <h2><i class="fa-solid fa-tree"></i> Cypress Valley Reservation Details</h2>
-        <div class="cypress-badge">
-          <i class="fa-solid fa-calendar-check"></i>
-          <span>CONFIRMED</span>
-        </div>
-      </div>
-      
-      <div class="cypress-info-card">
-        <p class="cypress-subtitle">Willow Treehouse • Reservation #344136</p>
-        
-        <div class="cypress-grid">
-          <div class="cypress-section">
-            <h3><i class="fa-solid fa-info-circle"></i> Check-in Information</h3>
-            <ul>
-              <li><strong>Date:</strong> Sunday, May 25, 2025 at 4:00 PM</li>
-              <li><strong>Check-out:</strong> Tuesday, May 27, 2025 at 11:00 AM</li>
-              <li><strong>Process:</strong> Self check-in with access codes sent by text at 3:30 PM</li>
-              <li><strong>Reminder:</strong> Email sent 2 days prior to arrival</li>
-            </ul>
-          </div>
-
-          <div class="cypress-section">
-            <h3><i class="fa-solid fa-home"></i> Amenities Included</h3>
-            <ul>
-              <li>Car access near treehouse (pack light for short walk)</li>
-              <li>Shared shower/bathroom facilities (2-3 min stroll)</li>
-              <li>All linens provided</li>
-              <li>Mini-fridge with freezer, coffee, water, teas</li>
-              <li>Electric kettle, cups, mugs</li>
-              <li>Microwave in Welcome Center</li>
-              <li>Propane grills with gas in recreation area</li>
-            </ul>
-          </div>
-
-          <div class="cypress-section">
-            <h3><i class="fa-solid fa-exclamation-triangle"></i> Important Notes</h3>
-            <ul>
-              <li><strong>Transportation:</strong> Car rental recommended (no rideshare/public transport)</li>
-              <li><strong>Vehicle:</strong> Low clearance vehicles & motorcycles may have difficulty</li>
-              <li><strong>Waivers:</strong> All guests 18+ must complete digital liability forms</li>
-              <li><strong>Cancellation:</strong> Non-refundable, reschedule free with 30+ days notice</li>
-            </ul>
-          </div>
-
-          <div class="cypress-section cost-section">
-            <h3><i class="fa-solid fa-receipt"></i> Cost Breakdown</h3>
-            <div class="cypress-cost-table">
-              <div class="cypress-cost-row">
-                <span>Willow Treehouse (2 nights)</span>
-                <span>$550.00</span>
-              </div>
-              <div class="cypress-cost-row discount">
-                <span>Weekday Special Discount</span>
-                <span>-$137.50</span>
-              </div>
-              <div class="cypress-cost-row">
-                <span>Subtotal</span>
-                <span>$412.50</span>
-              </div>
-              <div class="cypress-cost-row">
-                <span>Tax</span>
-                <span>$24.75</span>
-              </div>
-              <div class="cypress-cost-row total">
-                <span><strong>Total Paid</strong></span>
-                <span><strong>$437.25</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cypress-actions">
-          <a href="https://www.cypressvalley.com/" target="_blank" class="cypress-btn">
-            <i class="fa-solid fa-external-link-alt"></i> Cypress Valley Website
-          </a>
-          <a href="tel:+15124264635" class="cypress-btn">
-            <i class="fa-solid fa-phone"></i> Call Property
-          </a>
-          <a href="https://www.google.com/maps/place/1223+Paleface+Ranch+Rd+S,+Spicewood,+TX+78669" target="_blank" class="cypress-btn">
-            <i class="fa-solid fa-map-marker-alt"></i> Property Location
-          </a>
-        </div>
-      </div>
-    }
 
     <!-- Scroll to top button -->
     <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()">
@@ -3014,31 +1166,6 @@
   </div>
 
   <script>
-    // Restaurant guide functionality
-    function showRestaurants(location) {
-      // Hide all restaurant grids
-      document.querySelectorAll('.restaurant-grid').forEach(grid => {
-        grid.classList.remove('active');
-      });
-      
-      // Remove active class from all buttons
-      document.querySelectorAll('.location-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      // Show selected restaurant grid
-      document.getElementById(location + '-restaurants').classList.add('active');
-      
-      // Add active class to clicked button
-      document.querySelector(`[data-location="${location}"]`).classList.add('active');
-    }
-
-    // Reservation dropdown functionality
-    function toggleReservationDetails() {
-      const dropdown = document.querySelector('.reservation-dropdown');
-      dropdown.classList.toggle('expanded');
-    }
-
     // Mobile-specific interactions
     let isMobile = window.innerWidth <= 768;
     
@@ -3142,9 +1269,9 @@
         }
       }
       
-      // Press numbers 1-5 to toggle days
+      // Press numbers 1-3 to toggle days
       const dayNum = parseInt(e.key);
-      if (dayNum >= 1 && dayNum <= 5 && !e.target.matches('input, textarea')) {
+      if (dayNum >= 1 && dayNum <= 3 && !e.target.matches('input, textarea')) {
         const dayCard = document.querySelector(`.day-card[data-day="${dayNum}"]`);
         if (dayCard) {
           const header = dayCard.querySelector('.day-header');
